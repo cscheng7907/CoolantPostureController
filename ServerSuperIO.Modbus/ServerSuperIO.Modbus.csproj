@@ -1,0 +1,109 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E483EF6-8484-46CD-8B49-43AF76E2F40E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServerSuperIO.Modbus</RootNamespace>
+    <AssemblyName>ServerSuperIO.Modbus</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <DeployDirSuffix>ServerSuperIO.Modbus</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\SequenceUtility.cs" />
+    <Compile Include="Data\DiscreteCollection.cs" />
+    <Compile Include="Data\IModbusMessageDataCollection.cs" />
+    <Compile Include="Data\RegisterCollection.cs" />
+    <Compile Include="Device\IModbusMaster.cs" />
+    <Compile Include="Device\ModbusMaster.cs" />
+    <Compile Include="Message\AbstractModbusMessage.cs" />
+    <Compile Include="Message\AbstractModbusMessageWithData.cs" />
+    <Compile Include="Message\DiagnosticsRequestResponse.cs" />
+    <Compile Include="Message\IModbusMessage.cs" />
+    <Compile Include="Message\IModbusRequest.cs" />
+    <Compile Include="Message\ModbusMessageFactory.cs" />
+    <Compile Include="Message\ModbusMessageImpl.cs" />
+    <Compile Include="Message\ReadCoilsInputsRequest.cs" />
+    <Compile Include="Message\ReadCoilsInputsResponse.cs" />
+    <Compile Include="Message\ReadHoldingInputRegistersRequest.cs" />
+    <Compile Include="Message\ReadHoldingInputRegistersResponse.cs" />
+    <Compile Include="Message\ReadWriteMultipleRegistersRequest.cs" />
+    <Compile Include="Message\SlaveExceptionResponse.cs" />
+    <Compile Include="Message\WriteMultipleCoilsRequest.cs" />
+    <Compile Include="Message\WriteMultipleCoilsResponse.cs" />
+    <Compile Include="Message\WriteMultipleRegistersRequest.cs" />
+    <Compile Include="Message\WriteMultipleRegistersResponse.cs" />
+    <Compile Include="Message\WriteSingleCoilRequestResponse.cs" />
+    <Compile Include="Message\WriteSingleRegisterRequestResponse.cs" />
+    <Compile Include="Modbus.cs" />
+    <Compile Include="ModbusMasterFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.cs" />
+    <Compile Include="Transport\EmptyTransport.cs" />
+    <Compile Include="Transport\ModbusAsciiTransport.cs" />
+    <Compile Include="Transport\ModbusRtuTransport.cs" />
+    <Compile Include="Transport\ModbusSerialTransport.cs" />
+    <Compile Include="Transport\ModbusSocketTransport.cs" />
+    <Compile Include="Transport\ModbusTransport.cs" />
+    <Compile Include="Utility\ModbusUtility.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

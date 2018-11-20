@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{679DF33D-B9C5-4426-A61C-6C270CEE11E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoolantPostureController_Win32</RootNamespace>
+    <AssemblyName>CoolantPostureController_Win32</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CoolantPostureController\DataPoll\IDeviceDataPoll.cs">
+      <Link>DataPoll\IDeviceDataPoll.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\DataPoll\ModbusDeviceDataPoll.cs">
+      <Link>DataPoll\ModbusDeviceDataPoll.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\IO\IStreamResource.cs">
+      <Link>IO\IStreamResource.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\IO\SerialPortAdapter.cs">
+      <Link>IO\SerialPortAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\IO\TcpClientAdapter.cs">
+      <Link>IO\TcpClientAdapter.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\MainForm.cs">
+      <Link>MainForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\MainForm.designer.cs">
+      <Link>MainForm.designer.cs</Link>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modules\DriverModule.cs">
+      <Link>Modules\DriverModule.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modules\IModule.cs">
+      <Link>Modules\IModule.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modules\IOModule.cs">
+      <Link>Modules\IOModule.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Terminal.cs">
+      <Link>Terminal.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Terminal.designer.cs">
+      <Link>Terminal.designer.cs</Link>
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\CoolantPostureController\MainForm.resx">
+      <Link>MainForm.resx</Link>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\Terminal.resx">
+      <Link>Terminal.resx</Link>
+      <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServerSuperIO.Modbus_Win32\ServerSuperIO.Modbus_Win32.csproj">
+      <Project>{15FB699A-58FB-4F16-B7B6-AD9D652A5FD1}</Project>
+      <Name>ServerSuperIO.Modbus_Win32</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

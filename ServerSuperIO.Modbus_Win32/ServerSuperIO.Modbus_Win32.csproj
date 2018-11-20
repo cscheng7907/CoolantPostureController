@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15FB699A-58FB-4F16-B7B6-AD9D652A5FD1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServerSuperIO.Modbus</RootNamespace>
+    <AssemblyName>ServerSuperIO.Modbus_Win32</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\ServerSuperIO.Modbus\Common\SequenceUtility.cs">
+      <Link>Common\SequenceUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Data\DiscreteCollection.cs">
+      <Link>Data\DiscreteCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Data\IModbusMessageDataCollection.cs">
+      <Link>Data\IModbusMessageDataCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Data\RegisterCollection.cs">
+      <Link>Data\RegisterCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Device\IModbusMaster.cs">
+      <Link>Device\IModbusMaster.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Device\ModbusMaster.cs">
+      <Link>Device\ModbusMaster.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\AbstractModbusMessage.cs">
+      <Link>Message\AbstractModbusMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\AbstractModbusMessageWithData.cs">
+      <Link>Message\AbstractModbusMessageWithData.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\DiagnosticsRequestResponse.cs">
+      <Link>Message\DiagnosticsRequestResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\IModbusMessage.cs">
+      <Link>Message\IModbusMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\IModbusRequest.cs">
+      <Link>Message\IModbusRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\ModbusMessageFactory.cs">
+      <Link>Message\ModbusMessageFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\ModbusMessageImpl.cs">
+      <Link>Message\ModbusMessageImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\ReadCoilsInputsRequest.cs">
+      <Link>Message\ReadCoilsInputsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\ReadCoilsInputsResponse.cs">
+      <Link>Message\ReadCoilsInputsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\ReadHoldingInputRegistersRequest.cs">
+      <Link>Message\ReadHoldingInputRegistersRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\ReadHoldingInputRegistersResponse.cs">
+      <Link>Message\ReadHoldingInputRegistersResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\ReadWriteMultipleRegistersRequest.cs">
+      <Link>Message\ReadWriteMultipleRegistersRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\SlaveExceptionResponse.cs">
+      <Link>Message\SlaveExceptionResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\WriteMultipleCoilsRequest.cs">
+      <Link>Message\WriteMultipleCoilsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\WriteMultipleCoilsResponse.cs">
+      <Link>Message\WriteMultipleCoilsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\WriteMultipleRegistersRequest.cs">
+      <Link>Message\WriteMultipleRegistersRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\WriteMultipleRegistersResponse.cs">
+      <Link>Message\WriteMultipleRegistersResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\WriteSingleCoilRequestResponse.cs">
+      <Link>Message\WriteSingleCoilRequestResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Message\WriteSingleRegisterRequestResponse.cs">
+      <Link>Message\WriteSingleRegisterRequestResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Modbus.cs">
+      <Link>Modbus.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\ModbusMasterFactory.cs">
+      <Link>ModbusMasterFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Resources.cs">
+      <Link>Resources.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Transport\EmptyTransport.cs">
+      <Link>Transport\EmptyTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Transport\ModbusAsciiTransport.cs">
+      <Link>Transport\ModbusAsciiTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Transport\ModbusRtuTransport.cs">
+      <Link>Transport\ModbusRtuTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Transport\ModbusSerialTransport.cs">
+      <Link>Transport\ModbusSerialTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Transport\ModbusSocketTransport.cs">
+      <Link>Transport\ModbusSocketTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Transport\ModbusTransport.cs">
+      <Link>Transport\ModbusTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\ServerSuperIO.Modbus\Utility\ModbusUtility.cs">
+      <Link>Utility\ModbusUtility.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
