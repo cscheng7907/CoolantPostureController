@@ -94,6 +94,7 @@
     <Compile Include="Terminal.Designer.cs">
       <DependentUpon>Terminal.cs</DependentUpon>
     </Compile>
+    <Compile Include="TId2AngleConfigure.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ServerSuperIO.Modbus\ServerSuperIO.Modbus.csproj">

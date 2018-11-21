@@ -88,6 +88,9 @@
       <Link>Terminal.designer.cs</Link>
       <DependentUpon>Terminal.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\CoolantPostureController\TId2AngleConfigure.cs">
+      <Link>TId2AngleConfigure.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="..\CoolantPostureController\MainForm.resx">

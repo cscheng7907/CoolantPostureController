@@ -9,10 +9,9 @@ namespace CoolantPostureController
     public class TId2AngleConfigure
     {
 #if WinCE
-        private const string FileName = "";
+        private const string FileName = "\HardDisk\TId2AngleConfigure.txt";
 #else
         private const string FileName = "TId2AngleConfigure.txt";
-
 #endif
 
         private const int bufferLength = 64;
@@ -56,8 +55,8 @@ namespace CoolantPostureController
                         }
                     }
                     catch (Exception)
-                    {                       
-                      
+                    {
+
                     }
                 }
                 finally
@@ -74,7 +73,7 @@ namespace CoolantPostureController
             if (File.Exists(FileName))
                 File.Delete(FileName);
 
-            FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate );
+            FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate);
             BinaryWriter bw = new BinaryWriter(fs);
 
             try
@@ -83,9 +82,7 @@ namespace CoolantPostureController
                 {
                     for (int i = 0; i < bufferLength; i++)
                     {
-                        bw.Write(buffer[i] );
-
-                      
+                        bw.Write(buffer[i]);
                     }
                 }
                 catch (Exception)
@@ -99,9 +96,6 @@ namespace CoolantPostureController
                 bw.Close();
                 fs.Close();
             }
-
-
         }
-
     }
 }
