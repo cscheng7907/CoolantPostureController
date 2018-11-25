@@ -152,7 +152,7 @@ namespace CoolantPostureController.Modules
 
     public class DriverModule : IModule
     {
-        protected const double posScale = 1000;
+        protected const double posScale = 1000/360.0;
 
         protected const int bufferlength = 80;
         protected ushort[] buffer = new ushort[bufferlength];
@@ -258,7 +258,7 @@ namespace CoolantPostureController.Modules
             get
             {
                 //bit1
-                return (buffer[(ushort)DriverCMDIdx.drv_idx_7_Signal] & 0x0004) != 0;
+                return (buffer[(ushort)DriverCMDIdx.drv_idx_7_Signal] & 0x0008) != 0;
             }
         }
 
@@ -267,7 +267,7 @@ namespace CoolantPostureController.Modules
             get
             {
                 //bit1
-                return (buffer[(ushort)DriverCMDIdx.drv_idx_7_Signal] & 0x0008) != 0;
+                return (buffer[(ushort)DriverCMDIdx.drv_idx_7_Signal] & 0x0010) == 0;
             }
         }
 
@@ -298,7 +298,7 @@ namespace CoolantPostureController.Modules
         {
             if (_devicedatapoll != null)
             {
-                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_48_HomeEnable, 0);
+                //_devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_48_HomeEnable, 0);
 
                 _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_48_HomeEnable, 1);
             }
@@ -342,12 +342,13 @@ namespace CoolantPostureController.Modules
             {
                 pospulse = Convert.ToInt32(pos * posScale);
 
-                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_37_TotalPulseLow, (ushort)(pospulse & 0x00FF));
+                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_37_TotalPulseLow, (ushort)(pospulse & 0x0000FFFF));
 
-                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_36_TotalPulseHigh, (ushort)((pospulse & 0xFF00) >> 16));
+                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_36_TotalPulseHigh, (ushort)((pospulse & 0xFFFF0000) >> 16));
 
-                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_39_StartCMD, 0);
-                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_39_StartCMD, 1);
+                //_devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_39_StartCMD, 0);
+                //System.Threading.Thread.Sleep(80);
+                _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_39_StartCMD, 5);
             }
         }
 
@@ -356,6 +357,15 @@ namespace CoolantPostureController.Modules
             if (_devicedatapoll != null)
             {
                 _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_40_PauseCMD, 0);
+                //_devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_40_PauseCMD, 1);
+            }
+        }
+
+        public void DoEmg()
+        {
+            if (_devicedatapoll != null)
+            {
+                //_devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_40_PauseCMD, 0);
                 _devicedatapoll.WriteSingleRegister((ushort)DriverCMDIdx.drv_idx_40_PauseCMD, 1);
             }
         }
