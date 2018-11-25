@@ -61,6 +61,14 @@ namespace CoolantPostureController
         
         }
 
+        //自动运行
+        private void DoControl()
+        {
+            DriverModule.GetInstance().GotoPos(
+                TId2AngleConfigure.GetInstance().GetAngle(
+                IOModule.GetInstance().ToolNum));        
+        }
+
         private void btn_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
