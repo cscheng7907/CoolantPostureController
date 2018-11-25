@@ -17,8 +17,19 @@ namespace CoolantPostureController
         private const int bufferLength = 64;
         private double[] buffer = new double[bufferLength];
 
-        public TId2AngleConfigure()
+        private  TId2AngleConfigure()
         { }
+
+        static TId2AngleConfigure _obj = null;
+        public static TId2AngleConfigure GetInstance()
+        {
+            if (_obj == null)
+                _obj = new TId2AngleConfigure();
+
+            return _obj;
+        }
+
+
 
         public double GetAngle(int idx)
         {
