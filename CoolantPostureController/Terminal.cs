@@ -22,7 +22,7 @@ namespace CoolantPostureController
 
             {DriverCMDIdx.drv_idx_76_Y0_define, 1}//Y0功能 =1：报警信号
         };
-        
+
         public Terminal()
         {
             InitializeComponent();
@@ -44,6 +44,53 @@ namespace CoolantPostureController
             {
                 DriverModule.GetInstance().SetPara(item.Key, item.Value);
             }
+        }
+
+        private void Terminal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Locate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DriverModule.GetInstance().GotoPos(Convert.ToDouble(textBox_pos.Text));
+
+            }
+            catch (Exception)
+            {
+                
+                //throw;
+            }
+        }
+
+        private void button_Stop_Click(object sender, EventArgs e)
+        {
+            DriverModule.GetInstance().DoPause();
+        }
+
+        private void button_Home_Click(object sender, EventArgs e)
+        {
+            DriverModule.GetInstance().DoHome();
+        }
+
+        private void button_Reset_Click(object sender, EventArgs e)
+        {
+            DriverModule.GetInstance().DoReset();
+        }
+
+        private void button_pos_Click(object sender, EventArgs e)
+        {
+            DriverModule.GetInstance().DoRefresh();
+            
+            label_Pos.Text = DriverModule.GetInstance().Position.ToString("0.0");
+            
+            checkBox_en.Checked = DriverModule.GetInstance().Enable;
+            checkBox_err.Checked = DriverModule.GetInstance().Error;
+            checkBox_homed.Checked = DriverModule.GetInstance().Homed;
+            checkBox_inpos.Checked = DriverModule.GetInstance().Inpos;
+
         }
     }
 }
