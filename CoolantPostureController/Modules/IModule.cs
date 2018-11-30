@@ -12,7 +12,7 @@ namespace CoolantPostureController.Modules
 
         void DoRefresh();
 
-        IDeviceDataPoll DeviceDataPoll { set; }
+        DeviceDataPollbase DeviceDataPoll { set; }
 
         event OnDataChangedEventHandler OnDataChanged;
     }

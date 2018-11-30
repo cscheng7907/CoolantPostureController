@@ -5,10 +5,16 @@ using System.Text;
 
 namespace CoolantPostureController.DataPoll
 {
-    public interface IDeviceDataPoll
+    public abstract class DeviceDataPollbase
     {
-        ushort ReadSingleHoldingRegisters(ushort startAddress);
+        public virtual ushort ReadSingleHoldingRegisters(ushort startAddress) { return 0; }
 
-        void WriteSingleRegister(ushort startAddress, ushort value);
+        public virtual void WriteSingleRegister(ushort startAddress, ushort value) { }
+
+        public virtual bool[] ReadCoils(ushort startAddress, ushort length) { return null; }
+        public virtual void WriteSingleCoil(ushort startAddress, bool value) { }
+
+
+        public virtual bool[] ReadInputs(ushort startAddress, ushort length) { return null; }
     }
 }

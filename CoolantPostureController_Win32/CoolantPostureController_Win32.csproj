@@ -8,8 +8,8 @@
     <ProjectGuid>{679DF33D-B9C5-4426-A61C-6C270CEE11E8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CoolantPostureController_Win32</RootNamespace>
-    <AssemblyName>CoolantPostureController_Win32</AssemblyName>
+    <RootNamespace>CoolantPostureController</RootNamespace>
+    <AssemblyName>CoolantPostureController</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;UNPASSWORD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -48,11 +48,68 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ImageButton.cs">
+      <Link>ComnCtrls\ImageButton.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ImageButton.designer.cs">
+      <Link>ComnCtrls\ImageButton.designer.cs</Link>
+      <DependentUpon>ImageButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ImageLabel.cs">
+      <Link>ComnCtrls\ImageLabel.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ImageLabel.designer.cs">
+      <Link>ComnCtrls\ImageLabel.designer.cs</Link>
+      <DependentUpon>ImageLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ImagesContaner.cs">
+      <Link>ComnCtrls\ImagesContaner.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ImagesContaner.designer.cs">
+      <Link>ComnCtrls\ImagesContaner.designer.cs</Link>
+      <DependentUpon>ImagesContaner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\KeypadForm.cs">
+      <Link>ComnCtrls\KeypadForm.cs</Link>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\KeypadForm.designer.cs">
+      <Link>ComnCtrls\KeypadForm.designer.cs</Link>
+      <DependentUpon>KeypadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ProgressBar.cs">
+      <Link>ComnCtrls\ProgressBar.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ProgressBar.designer.cs">
+      <Link>ComnCtrls\ProgressBar.designer.cs</Link>
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\Resource1.Designer.cs">
+      <Link>ComnCtrls\Resource1.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\SimpleImagesContaner.cs">
+      <Link>ComnCtrls\SimpleImagesContaner.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\SimpleImagesContaner.designer.cs">
+      <Link>ComnCtrls\SimpleImagesContaner.designer.cs</Link>
+      <DependentUpon>SimpleImagesContaner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\CoolantPostureControlerRes.Designer.cs">
+      <Link>CoolantPostureControlerRes.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\DataPoll\DriverDeviceDataPoll.cs">
+      <Link>DataPoll\DriverDeviceDataPoll.cs</Link>
+    </Compile>
     <Compile Include="..\CoolantPostureController\DataPoll\IDeviceDataPoll.cs">
       <Link>DataPoll\IDeviceDataPoll.cs</Link>
     </Compile>
-    <Compile Include="..\CoolantPostureController\DataPoll\ModbusDeviceDataPoll.cs">
-      <Link>DataPoll\ModbusDeviceDataPoll.cs</Link>
+    <Compile Include="..\CoolantPostureController\DataPoll\IODeviceDataPoll.cs">
+      <Link>DataPoll\IODeviceDataPoll.cs</Link>
     </Compile>
     <Compile Include="..\CoolantPostureController\IO\IStreamResource.cs">
       <Link>IO\IStreamResource.cs</Link>
@@ -70,6 +127,111 @@
     <Compile Include="..\CoolantPostureController\MainForm.designer.cs">
       <Link>MainForm.designer.cs</Link>
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Common\SequenceUtility.cs">
+      <Link>Modbus\Common\SequenceUtility.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Data\DiscreteCollection.cs">
+      <Link>Modbus\Data\DiscreteCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Data\IModbusMessageDataCollection.cs">
+      <Link>Modbus\Data\IModbusMessageDataCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Data\RegisterCollection.cs">
+      <Link>Modbus\Data\RegisterCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Device\IModbusMaster.cs">
+      <Link>Modbus\Device\IModbusMaster.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Device\ModbusMaster.cs">
+      <Link>Modbus\Device\ModbusMaster.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\AbstractModbusMessage.cs">
+      <Link>Modbus\Message\AbstractModbusMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\AbstractModbusMessageWithData.cs">
+      <Link>Modbus\Message\AbstractModbusMessageWithData.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\DiagnosticsRequestResponse.cs">
+      <Link>Modbus\Message\DiagnosticsRequestResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\IModbusMessage.cs">
+      <Link>Modbus\Message\IModbusMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\IModbusRequest.cs">
+      <Link>Modbus\Message\IModbusRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\ModbusMessageFactory.cs">
+      <Link>Modbus\Message\ModbusMessageFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\ModbusMessageImpl.cs">
+      <Link>Modbus\Message\ModbusMessageImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\ReadCoilsInputsRequest.cs">
+      <Link>Modbus\Message\ReadCoilsInputsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\ReadCoilsInputsResponse.cs">
+      <Link>Modbus\Message\ReadCoilsInputsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\ReadHoldingInputRegistersRequest.cs">
+      <Link>Modbus\Message\ReadHoldingInputRegistersRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\ReadHoldingInputRegistersResponse.cs">
+      <Link>Modbus\Message\ReadHoldingInputRegistersResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\ReadWriteMultipleRegistersRequest.cs">
+      <Link>Modbus\Message\ReadWriteMultipleRegistersRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\SlaveExceptionResponse.cs">
+      <Link>Modbus\Message\SlaveExceptionResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\WriteMultipleCoilsRequest.cs">
+      <Link>Modbus\Message\WriteMultipleCoilsRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\WriteMultipleCoilsResponse.cs">
+      <Link>Modbus\Message\WriteMultipleCoilsResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\WriteMultipleRegistersRequest.cs">
+      <Link>Modbus\Message\WriteMultipleRegistersRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\WriteMultipleRegistersResponse.cs">
+      <Link>Modbus\Message\WriteMultipleRegistersResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\WriteSingleCoilRequestResponse.cs">
+      <Link>Modbus\Message\WriteSingleCoilRequestResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Message\WriteSingleRegisterRequestResponse.cs">
+      <Link>Modbus\Message\WriteSingleRegisterRequestResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Modbus.cs">
+      <Link>Modbus\Modbus.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\ModbusMasterFactory.cs">
+      <Link>Modbus\ModbusMasterFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Resources.cs">
+      <Link>Modbus\Resources.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Transport\EmptyTransport.cs">
+      <Link>Modbus\Transport\EmptyTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Transport\ModbusAsciiTransport.cs">
+      <Link>Modbus\Transport\ModbusAsciiTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Transport\ModbusRtuTransport.cs">
+      <Link>Modbus\Transport\ModbusRtuTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Transport\ModbusSerialTransport.cs">
+      <Link>Modbus\Transport\ModbusSerialTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Transport\ModbusSocketTransport.cs">
+      <Link>Modbus\Transport\ModbusSocketTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Transport\ModbusTransport.cs">
+      <Link>Modbus\Transport\ModbusTransport.cs</Link>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\Modbus\Utility\ModbusUtility.cs">
+      <Link>Modbus\Utility\ModbusUtility.cs</Link>
     </Compile>
     <Compile Include="..\CoolantPostureController\Modules\DriverModule.cs">
       <Link>Modules\DriverModule.cs</Link>
@@ -91,8 +253,38 @@
     <Compile Include="..\CoolantPostureController\TId2AngleConfigure.cs">
       <Link>TId2AngleConfigure.cs</Link>
     </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\PageViewDiagnose.cs">
+      <Link>UICtrls\PageViewDiagnose.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\PageViewDiagnose.designer.cs">
+      <Link>UICtrls\PageViewDiagnose.designer.cs</Link>
+      <DependentUpon>PageViewDiagnose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\UIControlbase.cs">
+      <Link>UICtrls\UIControlbase.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\UIControlbase.designer.cs">
+      <Link>UICtrls\UIControlbase.designer.cs</Link>
+      <DependentUpon>UIControlbase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="..\CoolantPostureController\ComnCtrls\KeypadForm.resx">
+      <Link>ComnCtrls\KeypadForm.resx</Link>
+      <DependentUpon>KeypadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\ComnCtrls\ProgressBar.resx">
+      <Link>ComnCtrls\ProgressBar.resx</Link>
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\ComnCtrls\Resource1.resx">
+      <Link>ComnCtrls\Resource1.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\CoolantPostureControlerRes.resx">
+      <Link>CoolantPostureControlerRes.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\CoolantPostureController\MainForm.resx">
       <Link>MainForm.resx</Link>
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -100,6 +292,10 @@
     <EmbeddedResource Include="..\CoolantPostureController\Terminal.resx">
       <Link>Terminal.resx</Link>
       <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\UICtrls\PageViewDiagnose.resx">
+      <Link>UICtrls\PageViewDiagnose.resx</Link>
+      <DependentUpon>PageViewDiagnose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -109,6 +305,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -121,10 +318,27 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServerSuperIO.Modbus_Win32\ServerSuperIO.Modbus_Win32.csproj">
-      <Project>{15FB699A-58FB-4F16-B7B6-AD9D652A5FD1}</Project>
-      <Name>ServerSuperIO.Modbus_Win32</Name>
-    </ProjectReference>
+    <Content Include="..\CoolantPostureController\res\gray-off.gif">
+      <Link>res\gray-off.gif</Link>
+    </Content>
+    <Content Include="..\CoolantPostureController\res\green-off.gif">
+      <Link>res\green-off.gif</Link>
+    </Content>
+    <Content Include="..\CoolantPostureController\res\green-on.gif">
+      <Link>res\green-on.gif</Link>
+    </Content>
+    <Content Include="..\CoolantPostureController\res\logo2.png">
+      <Link>res\logo2.png</Link>
+    </Content>
+    <Content Include="..\CoolantPostureController\res\Set_disable.png">
+      <Link>res\Set_disable.png</Link>
+    </Content>
+    <Content Include="..\CoolantPostureController\res\Set_down.png">
+      <Link>res\Set_down.png</Link>
+    </Content>
+    <Content Include="..\CoolantPostureController\res\Set_up.png">
+      <Link>res\Set_up.png</Link>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

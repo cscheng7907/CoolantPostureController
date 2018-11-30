@@ -152,7 +152,7 @@ namespace CoolantPostureController.Modules
 
     public class DriverModule : IModule
     {
-        protected const double posScale = 1000/360.0;
+        protected const double posScale = 1000 / 360.0;
 
         protected const int bufferlength = 80;
         protected ushort[] buffer = new ushort[bufferlength];
@@ -210,8 +210,8 @@ namespace CoolantPostureController.Modules
         }
 
 
-        private IDeviceDataPoll _devicedatapoll = null;
-        public IDeviceDataPoll DeviceDataPoll
+        private DeviceDataPollbase _devicedatapoll = null;
+        public DeviceDataPollbase DeviceDataPoll
         {
             set
             {
@@ -292,6 +292,12 @@ namespace CoolantPostureController.Modules
         {
             get { return buffer[(ushort)DriverCMDIdx.drv_idx_12_Velosity]; }
         }
+
+        public int ErrorNo
+        {
+            get { return buffer[(ushort)DriverCMDIdx.drv_idx_6_ErrorNo]; }
+        }
+
 
 
         public void DoHome()

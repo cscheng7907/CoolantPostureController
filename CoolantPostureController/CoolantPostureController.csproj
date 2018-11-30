@@ -24,7 +24,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;WindowsCE,UNPASSWORD</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -56,8 +56,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComnCtrls\ImageButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComnCtrls\ImageButton.designer.cs">
+      <DependentUpon>ImageButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComnCtrls\ImageLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComnCtrls\ImageLabel.designer.cs">
+      <DependentUpon>ImageLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComnCtrls\ImagesContaner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComnCtrls\ImagesContaner.designer.cs">
+      <DependentUpon>ImagesContaner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComnCtrls\KeypadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComnCtrls\KeypadForm.designer.cs">
+      <DependentUpon>KeypadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComnCtrls\ProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComnCtrls\ProgressBar.designer.cs">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComnCtrls\Resource1.Designer.cs" />
+    <Compile Include="ComnCtrls\SimpleImagesContaner.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComnCtrls\SimpleImagesContaner.designer.cs">
+      <DependentUpon>SimpleImagesContaner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CoolantPostureControlerRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoolantPostureControlerRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="DataPoll\IDeviceDataPoll.cs" />
-    <Compile Include="DataPoll\ModbusDeviceDataPoll.cs" />
+    <Compile Include="DataPoll\DriverDeviceDataPoll.cs" />
+    <Compile Include="DataPoll\IODeviceDataPoll.cs" />
     <Compile Include="IO\IStreamResource.cs" />
     <Compile Include="IO\SerialPortAdapter.cs" />
     <Compile Include="IO\TcpClientAdapter.cs" />
@@ -67,11 +110,57 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modbus\Common\SequenceUtility.cs" />
+    <Compile Include="Modbus\Data\DiscreteCollection.cs" />
+    <Compile Include="Modbus\Data\IModbusMessageDataCollection.cs" />
+    <Compile Include="Modbus\Data\RegisterCollection.cs" />
+    <Compile Include="Modbus\Device\IModbusMaster.cs" />
+    <Compile Include="Modbus\Device\ModbusMaster.cs" />
+    <Compile Include="Modbus\Message\AbstractModbusMessage.cs" />
+    <Compile Include="Modbus\Message\AbstractModbusMessageWithData.cs" />
+    <Compile Include="Modbus\Message\DiagnosticsRequestResponse.cs" />
+    <Compile Include="Modbus\Message\IModbusMessage.cs" />
+    <Compile Include="Modbus\Message\IModbusRequest.cs" />
+    <Compile Include="Modbus\Message\ModbusMessageFactory.cs" />
+    <Compile Include="Modbus\Message\ModbusMessageImpl.cs" />
+    <Compile Include="Modbus\Message\ReadCoilsInputsRequest.cs" />
+    <Compile Include="Modbus\Message\ReadCoilsInputsResponse.cs" />
+    <Compile Include="Modbus\Message\ReadHoldingInputRegistersRequest.cs" />
+    <Compile Include="Modbus\Message\ReadHoldingInputRegistersResponse.cs" />
+    <Compile Include="Modbus\Message\ReadWriteMultipleRegistersRequest.cs" />
+    <Compile Include="Modbus\Message\SlaveExceptionResponse.cs" />
+    <Compile Include="Modbus\Message\WriteMultipleCoilsRequest.cs" />
+    <Compile Include="Modbus\Message\WriteMultipleCoilsResponse.cs" />
+    <Compile Include="Modbus\Message\WriteMultipleRegistersRequest.cs" />
+    <Compile Include="Modbus\Message\WriteMultipleRegistersResponse.cs" />
+    <Compile Include="Modbus\Message\WriteSingleCoilRequestResponse.cs" />
+    <Compile Include="Modbus\Message\WriteSingleRegisterRequestResponse.cs" />
+    <Compile Include="Modbus\Modbus.cs" />
+    <Compile Include="Modbus\ModbusMasterFactory.cs" />
+    <Compile Include="Modbus\Resources.cs" />
+    <Compile Include="Modbus\Transport\EmptyTransport.cs" />
+    <Compile Include="Modbus\Transport\ModbusAsciiTransport.cs" />
+    <Compile Include="Modbus\Transport\ModbusRtuTransport.cs" />
+    <Compile Include="Modbus\Transport\ModbusSerialTransport.cs" />
+    <Compile Include="Modbus\Transport\ModbusSocketTransport.cs" />
+    <Compile Include="Modbus\Transport\ModbusTransport.cs" />
+    <Compile Include="Modbus\Utility\ModbusUtility.cs" />
     <Compile Include="Modules\DriverModule.cs" />
     <Compile Include="Modules\IModule.cs" />
     <Compile Include="Modules\IOModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ComnCtrls\KeypadForm.resx">
+      <DependentUpon>KeypadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComnCtrls\ProgressBar.resx">
+      <DependentUpon>ProgressBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComnCtrls\Resource1.resx" />
+    <EmbeddedResource Include="CoolantPostureControlerRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CoolantPostureControlerRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -84,6 +173,9 @@
     <EmbeddedResource Include="Terminal.resx">
       <DependentUpon>Terminal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UICtrls\PageViewDiagnose.resx">
+      <DependentUpon>PageViewDiagnose.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -95,12 +187,66 @@
       <DependentUpon>Terminal.cs</DependentUpon>
     </Compile>
     <Compile Include="TId2AngleConfigure.cs" />
+    <Compile Include="UICtrls\PageViewDiagnose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UICtrls\PageViewDiagnose.Designer.cs">
+      <DependentUpon>PageViewDiagnose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UICtrls\PageViewMAC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UICtrls\PageViewMAC.Designer.cs">
+      <DependentUpon>PageViewMAC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UICtrls\UIControlbase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UICtrls\UIControlbase.designer.cs">
+      <DependentUpon>UIControlbase.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ServerSuperIO.Modbus\ServerSuperIO.Modbus.csproj">
-      <Project>{0E483EF6-8484-46CD-8B49-43AF76E2F40E}</Project>
-      <Name>ServerSuperIO.Modbus</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="res\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\green-on.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\green-off.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\gray-off.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\Set_disable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\Set_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="res\Set_up.png" />
+    <EmbeddedResource Include="UICtrls\PageViewMAC.resx">
+      <DependentUpon>PageViewMAC.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ellipse_dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ellipse_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ellipse_dis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\red_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\red_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

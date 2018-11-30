@@ -46,6 +46,17 @@
             this.checkBox_inpos = new System.Windows.Forms.CheckBox();
             this.checkBox_err = new System.Windows.Forms.CheckBox();
             this.checkBox_en = new System.Windows.Forms.CheckBox();
+            this.label_TN = new System.Windows.Forms.Label();
+            this.checkBox_Ready = new System.Windows.Forms.CheckBox();
+            this.checkBox_Inc = new System.Windows.Forms.CheckBox();
+            this.checkBox_Dec = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox_ot0 = new System.Windows.Forms.CheckBox();
+            this.checkBox_ot1 = new System.Windows.Forms.CheckBox();
+            this.checkBox_ot2 = new System.Windows.Forms.CheckBox();
+            this.checkBox_ot3 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button_Read
@@ -164,9 +175,9 @@
             // label_Pos
             // 
             this.label_Pos.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular);
-            this.label_Pos.Location = new System.Drawing.Point(554, 51);
+            this.label_Pos.Location = new System.Drawing.Point(592, 56);
             this.label_Pos.Name = "label_Pos";
-            this.label_Pos.Size = new System.Drawing.Size(100, 20);
+            this.label_Pos.Size = new System.Drawing.Size(81, 20);
             this.label_Pos.Text = "0.0";
             // 
             // button_pos
@@ -210,10 +221,112 @@
             this.checkBox_en.TabIndex = 27;
             this.checkBox_en.Text = "能使";
             // 
+            // label_TN
+            // 
+            this.label_TN.Location = new System.Drawing.Point(584, 201);
+            this.label_TN.Name = "label_TN";
+            this.label_TN.Size = new System.Drawing.Size(33, 20);
+            this.label_TN.Text = "0";
+            // 
+            // checkBox_Ready
+            // 
+            this.checkBox_Ready.Location = new System.Drawing.Point(542, 229);
+            this.checkBox_Ready.Name = "checkBox_Ready";
+            this.checkBox_Ready.Size = new System.Drawing.Size(75, 20);
+            this.checkBox_Ready.TabIndex = 32;
+            this.checkBox_Ready.Text = "就绪";
+            // 
+            // checkBox_Inc
+            // 
+            this.checkBox_Inc.Location = new System.Drawing.Point(542, 248);
+            this.checkBox_Inc.Name = "checkBox_Inc";
+            this.checkBox_Inc.Size = new System.Drawing.Size(100, 20);
+            this.checkBox_Inc.TabIndex = 33;
+            this.checkBox_Inc.Text = "Inc";
+            // 
+            // checkBox_Dec
+            // 
+            this.checkBox_Dec.Location = new System.Drawing.Point(542, 267);
+            this.checkBox_Dec.Name = "checkBox_Dec";
+            this.checkBox_Dec.Size = new System.Drawing.Size(100, 20);
+            this.checkBox_Dec.TabIndex = 34;
+            this.checkBox_Dec.Text = "Dec";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(536, 201);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.Text = "刀号";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(618, 201);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.Text = "输出";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(545, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 20);
+            this.label5.Text = "角度";
+            // 
+            // checkBox_ot0
+            // 
+            this.checkBox_ot0.Location = new System.Drawing.Point(618, 229);
+            this.checkBox_ot0.Name = "checkBox_ot0";
+            this.checkBox_ot0.Size = new System.Drawing.Size(100, 20);
+            this.checkBox_ot0.TabIndex = 40;
+            this.checkBox_ot0.Tag = "0";
+            this.checkBox_ot0.Text = "output0";
+            this.checkBox_ot0.CheckStateChanged += new System.EventHandler(this.checkBox_ot0_CheckStateChanged);
+            // 
+            // checkBox_ot1
+            // 
+            this.checkBox_ot1.Location = new System.Drawing.Point(618, 248);
+            this.checkBox_ot1.Name = "checkBox_ot1";
+            this.checkBox_ot1.Size = new System.Drawing.Size(100, 20);
+            this.checkBox_ot1.TabIndex = 41;
+            this.checkBox_ot1.Tag = "1";
+            this.checkBox_ot1.Text = "output1";
+            this.checkBox_ot1.CheckStateChanged += new System.EventHandler(this.checkBox_ot0_CheckStateChanged);
+            // 
+            // checkBox_ot2
+            // 
+            this.checkBox_ot2.Location = new System.Drawing.Point(618, 267);
+            this.checkBox_ot2.Name = "checkBox_ot2";
+            this.checkBox_ot2.Size = new System.Drawing.Size(100, 20);
+            this.checkBox_ot2.TabIndex = 42;
+            this.checkBox_ot2.Tag = "2";
+            this.checkBox_ot2.Text = "output2";
+            this.checkBox_ot2.CheckStateChanged += new System.EventHandler(this.checkBox_ot0_CheckStateChanged);
+            // 
+            // checkBox_ot3
+            // 
+            this.checkBox_ot3.Location = new System.Drawing.Point(618, 284);
+            this.checkBox_ot3.Name = "checkBox_ot3";
+            this.checkBox_ot3.Size = new System.Drawing.Size(100, 20);
+            this.checkBox_ot3.TabIndex = 43;
+            this.checkBox_ot3.Tag = "3";
+            this.checkBox_ot3.Text = "output3";
+            this.checkBox_ot3.CheckStateChanged += new System.EventHandler(this.checkBox_ot0_CheckStateChanged);
+            // 
             // Terminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.checkBox_ot3);
+            this.Controls.Add(this.checkBox_ot2);
+            this.Controls.Add(this.checkBox_ot1);
+            this.Controls.Add(this.checkBox_ot0);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.checkBox_Dec);
+            this.Controls.Add(this.checkBox_Inc);
+            this.Controls.Add(this.checkBox_Ready);
+            this.Controls.Add(this.label_TN);
             this.Controls.Add(this.checkBox_en);
             this.Controls.Add(this.checkBox_err);
             this.Controls.Add(this.checkBox_inpos);
@@ -232,8 +345,9 @@
             this.Controls.Add(this.textBox_Val);
             this.Controls.Add(this.textBox_Idx);
             this.Controls.Add(this.button_Read);
+            this.Controls.Add(this.label4);
             this.Name = "Terminal";
-            this.Size = new System.Drawing.Size(800, 195);
+            this.Size = new System.Drawing.Size(800, 400);
             this.Click += new System.EventHandler(this.Terminal_Click);
             this.ResumeLayout(false);
 
@@ -259,5 +373,16 @@
         private System.Windows.Forms.CheckBox checkBox_inpos;
         private System.Windows.Forms.CheckBox checkBox_err;
         private System.Windows.Forms.CheckBox checkBox_en;
+        private System.Windows.Forms.Label label_TN;
+        private System.Windows.Forms.CheckBox checkBox_Ready;
+        private System.Windows.Forms.CheckBox checkBox_Inc;
+        private System.Windows.Forms.CheckBox checkBox_Dec;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBox_ot0;
+        private System.Windows.Forms.CheckBox checkBox_ot1;
+        private System.Windows.Forms.CheckBox checkBox_ot2;
+        private System.Windows.Forms.CheckBox checkBox_ot3;
     }
 }

@@ -10,9 +10,9 @@ using System.Threading;
 
 namespace CoolantPostureController.DataPoll
 {
-    class ModbusDeviceDataPoll : IDeviceDataPoll
+   public  class DriverDeviceDataPoll : DeviceDataPollbase
     {
-        private const byte slaveId = 1;
+        private const byte slaveId = 2;
         //private ushort startAddress = 0;
         private const ushort numRegisters = 1;
 
@@ -31,7 +31,7 @@ namespace CoolantPostureController.DataPoll
         { set { if (_modbusmaster != value) _modbusmaster = value; } }
 
 
-        public ushort ReadSingleHoldingRegisters(ushort startAddress)
+        public override ushort ReadSingleHoldingRegisters(ushort startAddress)
         {
             //return 0;
 
@@ -85,7 +85,7 @@ namespace CoolantPostureController.DataPoll
 
         }
 
-        public void WriteSingleRegister(ushort startAddress, ushort value)
+        public override void WriteSingleRegister(ushort startAddress, ushort value)
         {
             if (_modbusmaster != null && _streamRes != null)
             {
@@ -130,6 +130,52 @@ namespace CoolantPostureController.DataPoll
             }
         }
 
+        public override bool[] ReadCoils(ushort startAddress, ushort length)
+        {
+            if (_modbusmaster != null && _streamRes != null)
+            {
+                try
+                {
+                    IModbusMessage request;
+                    byte[] sendBytes = _modbusmaster.BuildReadCoilsCommand(slaveId, startAddress, length, out request);
+                    _streamRes.Write(sendBytes, 0, sendBytes.Length);
 
+                    byte[] readBuffer = new byte[1024];
+
+                    Thread.Sleep(50);
+                    int num = _streamRes.Read(readBuffer, 0, readBuffer.Length);
+
+                    if (num > 3)
+                    {
+                        byte[] readBytes = new byte[num];
+                        Buffer.BlockCopy(readBuffer, 0, readBytes, 0, num);
+
+                        bool[] response = _modbusmaster.GetReadCoilsResponse(readBytes, length, request);
+
+                        if (response.Length > 0)
+                        {
+                            return response;
+                        }
+                        else
+                        {
+                            ;
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+                finally
+                {
+
+                }
+            }
+
+            return null;
+        }
+        //public override bool[] ReadInputs(ushort startAddress, ushort length)
+        //{ return null; }
+  
     }
 }

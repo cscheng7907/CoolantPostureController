@@ -60,7 +60,7 @@ namespace CoolantPostureController
             }
             catch (Exception)
             {
-                
+
                 //throw;
             }
         }
@@ -83,13 +83,54 @@ namespace CoolantPostureController
         private void button_pos_Click(object sender, EventArgs e)
         {
             DriverModule.GetInstance().DoRefresh();
-            
+
             label_Pos.Text = DriverModule.GetInstance().Position.ToString("0.0");
-            
+
             checkBox_en.Checked = DriverModule.GetInstance().Enable;
             checkBox_err.Checked = DriverModule.GetInstance().Error;
             checkBox_homed.Checked = DriverModule.GetInstance().Homed;
             checkBox_inpos.Checked = DriverModule.GetInstance().Inpos;
+
+
+            IOModule.GetInstance().DoRefresh();
+            label_TN.Text = IOModule.GetInstance().ToolNum.ToString();
+            checkBox_Ready.Checked = IOModule.GetInstance().Ready;
+            checkBox_Inc.Checked = IOModule.GetInstance().BtnInc;
+            checkBox_Dec.Checked = IOModule.GetInstance().BtnDec;
+
+            //label_out.Text = (IOModule.GetInstance().GetOutput(0) ? "1 " : "0 ") +
+            //     (IOModule.GetInstance().GetOutput(1) ? "1 " : "0 ") +
+            //     (IOModule.GetInstance().GetOutput(2) ? "1 " : "0 ") +
+            //     (IOModule.GetInstance().GetOutput(3) ? "1 " : "0 ");
+            checklock = true;
+            try
+            {
+                checkBox_ot0.Checked = IOModule.GetInstance().GetOutput(0);
+                checkBox_ot1.Checked = IOModule.GetInstance().GetOutput(1);
+                checkBox_ot2.Checked = IOModule.GetInstance().GetOutput(2);
+                checkBox_ot3.Checked = IOModule.GetInstance().GetOutput(3);
+
+            }
+            finally
+            {
+                checklock = false;
+            }
+
+
+        }
+
+
+        private bool checklock = false;
+        private void checkBox_ot0_CheckStateChanged(object sender, EventArgs e)
+        {
+
+            if (sender is CheckBox && !checklock)
+            {
+                CheckBox c = (CheckBox)sender;
+
+                IOModule.GetInstance().SetOutput(Convert.ToInt32(c.Tag), c.Checked);
+            }
+
 
         }
     }
