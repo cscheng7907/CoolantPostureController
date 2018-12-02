@@ -75,8 +75,8 @@ namespace CoolantPostureController.UICtrls
 
 
             BackButtonImage = new ImagesContaner();
-            BackButtonImage.DNImg = CoolantPostureControlerRes.ellipse_dn;//.Set_down;
-            BackButtonImage.UPImg = CoolantPostureControlerRes.ellipse_up;//.Set_up;
+            BackButtonImage.DNImg = CoolantPostureControlerRes.ellipse_up;//.Set_down;
+            BackButtonImage.UPImg = CoolantPostureControlerRes.ellipse_dn;//.Set_up;
             BackButtonImage.UPImgDisaable = CoolantPostureControlerRes.ellipse_dis;// Set_disable;
             BackButtonImage.DNImgDisable = CoolantPostureControlerRes.ellipse_dis;// Set_disable;
 

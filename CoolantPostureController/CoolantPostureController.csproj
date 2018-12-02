@@ -193,6 +193,12 @@
     <Compile Include="UICtrls\PageViewDiagnose.Designer.cs">
       <DependentUpon>PageViewDiagnose.cs</DependentUpon>
     </Compile>
+    <Compile Include="UICtrls\PageViewEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UICtrls\PageViewEdit.Designer.cs">
+      <DependentUpon>PageViewEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="UICtrls\PageViewMAC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,6 +232,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="res\Set_up.png" />
+    <EmbeddedResource Include="UICtrls\PageViewEdit.resx">
+      <DependentUpon>PageViewEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UICtrls\PageViewMAC.resx">
       <DependentUpon>PageViewMAC.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +253,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\red_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\btn_dis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Btn_up.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

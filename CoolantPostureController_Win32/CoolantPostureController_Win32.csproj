@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;UNPASSWORD</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;UNPASSWORD,NOLINK</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -261,6 +261,22 @@
       <Link>UICtrls\PageViewDiagnose.designer.cs</Link>
       <DependentUpon>PageViewDiagnose.cs</DependentUpon>
     </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\PageViewEdit.cs">
+      <Link>UICtrls\PageViewEdit.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\PageViewEdit.designer.cs">
+      <Link>UICtrls\PageViewEdit.designer.cs</Link>
+      <DependentUpon>PageViewEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\PageViewMAC.cs">
+      <Link>UICtrls\PageViewMAC.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\PageViewMAC.designer.cs">
+      <Link>UICtrls\PageViewMAC.designer.cs</Link>
+      <DependentUpon>PageViewMAC.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\CoolantPostureController\UICtrls\UIControlbase.cs">
       <Link>UICtrls\UIControlbase.cs</Link>
       <SubType>UserControl</SubType>
@@ -296,6 +312,14 @@
     <EmbeddedResource Include="..\CoolantPostureController\UICtrls\PageViewDiagnose.resx">
       <Link>UICtrls\PageViewDiagnose.resx</Link>
       <DependentUpon>PageViewDiagnose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\UICtrls\PageViewEdit.resx">
+      <Link>UICtrls\PageViewEdit.resx</Link>
+      <DependentUpon>PageViewEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\UICtrls\PageViewMAC.resx">
+      <Link>UICtrls\PageViewMAC.resx</Link>
+      <DependentUpon>PageViewMAC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

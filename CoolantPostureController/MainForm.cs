@@ -56,6 +56,8 @@ namespace CoolantPostureController
                     Application.Exit();
                 }
             }
+
+
             return port;
         }
 
@@ -80,7 +82,7 @@ namespace CoolantPostureController
             ioDataPoll.ModbusMaster = ModbusMaster;// ModbusMasterFactory.CreateRtu();
 
             IOModule.GetInstance().DeviceDataPoll = ioDataPoll;
-                     
+
 
             if (isFontExists())
                 LoadFont();
@@ -88,10 +90,12 @@ namespace CoolantPostureController
             bigviewLocation = new Point(0, this.panel_Title.Height);
             bigviewsize = new Size(this.Width, this.Height - this.panel_Title.Height);
 
+            TId2AngleConfigure.GetInstance().Load(); 
+       
             ViewMap();
 
 
-            timer1.Enabled = true;
+            // timer1.Enabled = true;
         }
 
         #region testing
@@ -102,9 +106,10 @@ namespace CoolantPostureController
             ter.Dock = DockStyle.Fill;
             this.panel_body.Controls.Add(ter);
 #else
-            timer1_Tick(this, null);
+            //timer1_Tick(this, null);
 
-            imageLabel_Diagnose_Click(this, null);
+            //imageLabel_Diagnose_Click(this, null);
+            imageLabel_MAC_Click(this, null);
 #endif
         }
         private void btn_exit_Click(object sender, EventArgs e)
@@ -181,7 +186,46 @@ namespace CoolantPostureController
 
         #region PageView vars
         private PageViewDiagnose pvDiagnose = null;
+        private PageViewMAC pvMAC = null;
+        private PageViewEdit pvEdit = null;
 
+        public void Create_pvMAC()
+        {
+            if (pvMAC == null)
+            {
+                pvMAC = new PageViewMAC();
+                pvMAC.Location = bigviewLocation;
+                pvMAC.Size = bigviewsize;
+                pvMAC.Enabled = false;
+                pvMAC.OnPageChange += new OnDataChangedEventHandler(DoPageChange);
+                this.Controls.Add(this.pvMAC);
+            }
+        }
+
+        private const ushort PageNo_Edit = 0;
+        private const ushort PageNo_Diagnose = 1;
+
+        private void DoPageChange(ushort index)
+        {
+            switch (index)
+            {
+                case PageNo_Edit:
+                    imageLabel_Edit_Click(this, null);
+                    break;
+                case PageNo_Diagnose:
+                    imageLabel_Diagnose_Click(this, null);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        private void imageLabel_MAC_Click(object sender, EventArgs e)
+        {
+            Create_pvMAC();
+            pvMAC.DoEnter();
+        }
 
         public void Create_pvDiagnose()
         {
@@ -213,16 +257,34 @@ namespace CoolantPostureController
             }
 #endif
         }
+
+        public void Create_pvEdit()
+        {
+            if (pvEdit == null)
+            {
+                pvEdit = new PageViewEdit();
+                pvEdit.Location = bigviewLocation;
+                pvEdit.Size = bigviewsize;
+                pvEdit.Enabled = false;
+                this.Controls.Add(this.pvEdit);
+            }
+        }
+
+        private void imageLabel_Edit_Click(object sender, EventArgs e)
+        {
+            Create_pvEdit();
+            pvEdit.DoEnter();
+        }
+
+
         #endregion
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             DriverModule.GetInstance().DoRefresh();
             IOModule.GetInstance().DoRefresh();
 
-
-
+            DoTitleUpdate();
         }
 
     }

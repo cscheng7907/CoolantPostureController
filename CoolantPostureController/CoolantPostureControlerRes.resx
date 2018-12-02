@@ -154,4 +154,10 @@
   <data name="red_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>res\red_on.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btn_dis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>res\btn_dis.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Btn_up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>res\Btn_up.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
