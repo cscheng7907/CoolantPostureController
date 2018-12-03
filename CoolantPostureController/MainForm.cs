@@ -22,7 +22,13 @@ namespace CoolantPostureController
     public partial class MainForm : Form
     {
         private const string FontfileName = @"HardDisk\MSYH.ttf";
+
+#if WindowsCE
+        private const string PortName = "COM2";
+#else
         private const string PortName = "COM3";
+#endif
+
         private const string password_Diagnose = "666";//诊断界面密码
         private SerialPort port = null;
         private System.Drawing.Point bigviewLocation;
@@ -90,8 +96,8 @@ namespace CoolantPostureController
             bigviewLocation = new Point(0, this.panel_Title.Height);
             bigviewsize = new Size(this.Width, this.Height - this.panel_Title.Height);
 
-            TId2AngleConfigure.GetInstance().Load(); 
-       
+            TId2AngleConfigure.GetInstance().Load();
+
             ViewMap();
 
 
