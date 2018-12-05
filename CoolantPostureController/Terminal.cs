@@ -10,7 +10,7 @@ using CoolantPostureController.Modules;
 
 namespace CoolantPostureController
 {
-    public partial class Terminal : UserControl
+    public partial class Terminal : UIControlbase
     {
         private Dictionary<DriverCMDIdx, ushort> InitList = new Dictionary<DriverCMDIdx, ushort> 
         {
@@ -132,6 +132,11 @@ namespace CoolantPostureController
             }
 
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.DoExit();
         }
     }
 }

@@ -152,10 +152,11 @@ namespace CoolantPostureController.Modules
 
     public class DriverModule : IModule
     {
-        protected const double posScale = 1000 / 360.0;
+        protected const double posScale = 4000.0 / 360.0;
 
         protected const int bufferlength = 80;
         protected ushort[] buffer = new ushort[bufferlength];
+        protected ushort[] buffer_bk = new ushort[bufferlength];
 
 
         private DriverCMDIdx[] UpdateList = 
@@ -201,10 +202,12 @@ namespace CoolantPostureController.Modules
                 {
                     val = _devicedatapoll.ReadSingleHoldingRegisters((ushort)item);
 
-                    if (buffer[(ushort)item] != val)
-                        DoDataChanged(item);
+                    buffer_bk[(ushort)item] = buffer[(ushort)item];
 
                     buffer[(ushort)item] = val;
+
+                    if (buffer[(ushort)item] != buffer_bk[(ushort)item])
+                        DoDataChanged(item);
                 }
             }
         }

@@ -64,6 +64,10 @@
             this.panel_Title.Location = new System.Drawing.Point(0, 0);
             this.panel_Title.Name = "panel_Title";
             this.panel_Title.Size = new System.Drawing.Size(800, 70);
+            this.panel_Title.DoubleClick += new System.EventHandler(this.panel_Title_DoubleClick);
+            this.panel_Title.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_Head_MouseMove);
+            this.panel_Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Head_MouseDown);
+            this.panel_Title.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_Head_MouseUp);
             // 
             // label_company
             // 
@@ -83,6 +87,7 @@
             // 
             // label_ErrNo
             // 
+            this.label_ErrNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_ErrNo.BackColor = System.Drawing.Color.Red;
             this.label_ErrNo.Font = new System.Drawing.Font("Tahoma", 28F, System.Drawing.FontStyle.Regular);
             this.label_ErrNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -94,6 +99,7 @@
             // 
             // label_Time
             // 
+            this.label_Time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Time.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular);
             this.label_Time.ForeColor = System.Drawing.Color.White;
             this.label_Time.Location = new System.Drawing.Point(662, 39);
@@ -103,6 +109,7 @@
             // 
             // label_Date
             // 
+            this.label_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Date.Font = new System.Drawing.Font("Tahoma", 14F, System.Drawing.FontStyle.Regular);
             this.label_Date.ForeColor = System.Drawing.Color.White;
             this.label_Date.Location = new System.Drawing.Point(662, 11);

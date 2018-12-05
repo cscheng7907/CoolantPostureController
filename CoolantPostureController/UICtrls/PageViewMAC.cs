@@ -13,7 +13,10 @@ namespace CoolantPostureController.UICtrls
 {
     public partial class PageViewMAC : UIControlbase
     {
-        private ComCtrls.SimpleImagesContaner BtnImage = null;//IO标签背景图
+        private ComCtrls.ImagesContaner BtnImage = null;//IO标签背景图
+        private ComCtrls.SimpleImagesContaner LabelImage = null;//IO标签背景图
+
+
         private double AngIncStep = 0.5;
         private bool isRunning = false;
 
@@ -22,16 +25,34 @@ namespace CoolantPostureController.UICtrls
         {
             InitializeComponent();
 
-            BtnImage = new SimpleImagesContaner();
-            BtnImage.BackImg = CoolantPostureControlerRes.Btn_up;
-            BtnImage.ImgDisable = CoolantPostureControlerRes.btn_dis;
-            BtnImage.CheckedBackImg = CoolantPostureControlerRes.Btn_up;
+            BtnImage = new ImagesContaner();
+            BtnImage.DNImg = CoolantPostureControlerRes.Btn_up;
+            BtnImage.UPImg = CoolantPostureControlerRes.Btn_dn;
+            BtnImage.UPImgDisaable = CoolantPostureControlerRes.btn_dis;
+            BtnImage.DNImgDisable = CoolantPostureControlerRes.btn_dis;
+
+            LabelImage = new SimpleImagesContaner();
+            LabelImage.BackImg = CoolantPostureControlerRes.Btn_dn;
+            LabelImage.ImgDisable = CoolantPostureControlerRes.btn_dis;
+            LabelImage.CheckedBackImg = CoolantPostureControlerRes.Btn_up;
 
             imageLabel_Edit.IMGContainer =
-                imageLabel_Edit.IMGContainer =
                 imageLabel_Diagnose.IMGContainer =
-                imageLabel_Home.IMGContainer =
+                LabelImage;
+
+            imageLabel_Home.IMGContainer =
+                imageLabel_Reset.IMGContainer =
+                imageLabel_Start.IMGContainer =
                 BtnImage;
+
+            BindDataChange();
+        }
+
+
+        private void BindDataChange()
+        {
+            DriverModule.GetInstance().OnDataChanged += new OnDataChangedEventHandler(DoDrvDataChange);
+            IOModule.GetInstance().OnDataChanged += new OnDataChangedEventHandler(DoIODdataChange);
         }
 
         public override void DoEnter()
@@ -41,24 +62,31 @@ namespace CoolantPostureController.UICtrls
             DoRefresh();
         }
 
+        public override void DoReEnter()
+        {
+            base.DoReEnter();
+
+            DoRefresh();
+        }
+
         protected override void DoExit()
         {
             base.DoExit();
         }
         #region data change
 
-        private void DoRefresh()
+        public void DoRefresh()
         {
             UpdateToolNum();
             UpdateAng();
 
-            DoRun();
+            //DoRun();
         }
 
 
         private void UpdateToolNum()
         {
-            label_ToolNum.Text = IOModule.GetInstance().ToolNum.ToString();
+            label_ToolNum.Text ="# "+ IOModule.GetInstance().ToolNum.ToString();
         }
 
         private void UpdateAng()
@@ -119,6 +147,12 @@ namespace CoolantPostureController.UICtrls
                 DoDataChanged(ushort.Parse((((ImageLabel)sender).Tag.ToString())));
         }
 
+
+        private void imageLabel_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
         private void imageLabel_Reset_Click(object sender, EventArgs e)
         {
             DriverModule.GetInstance().DoReset();
@@ -129,7 +163,10 @@ namespace CoolantPostureController.UICtrls
             DriverModule.GetInstance().DoHome();
         }
 
+        private void imageLabel_Start_Click(object sender, EventArgs e)
+        {
 
+        }
         #endregion
 
         public event OnDataChangedEventHandler OnPageChange = null;
@@ -153,6 +190,10 @@ namespace CoolantPostureController.UICtrls
             }
 
         }
+
+
+
+
 
 
     }

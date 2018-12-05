@@ -253,6 +253,14 @@
     <Compile Include="..\CoolantPostureController\TId2AngleConfigure.cs">
       <Link>TId2AngleConfigure.cs</Link>
     </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\EditCell.cs">
+      <Link>UICtrls\EditCell.cs</Link>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="..\CoolantPostureController\UICtrls\EditCell.designer.cs">
+      <Link>UICtrls\EditCell.designer.cs</Link>
+      <DependentUpon>EditCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="..\CoolantPostureController\UICtrls\PageViewDiagnose.cs">
       <Link>UICtrls\PageViewDiagnose.cs</Link>
       <SubType>UserControl</SubType>
@@ -308,6 +316,10 @@
     <EmbeddedResource Include="..\CoolantPostureController\Terminal.resx">
       <Link>Terminal.resx</Link>
       <DependentUpon>Terminal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\CoolantPostureController\UICtrls\EditCell.resx">
+      <Link>UICtrls\EditCell.resx</Link>
+      <DependentUpon>EditCell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="..\CoolantPostureController\UICtrls\PageViewDiagnose.resx">
       <Link>UICtrls\PageViewDiagnose.resx</Link>

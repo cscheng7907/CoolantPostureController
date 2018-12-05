@@ -57,6 +57,7 @@
             this.checkBox_ot1 = new System.Windows.Forms.CheckBox();
             this.checkBox_ot2 = new System.Windows.Forms.CheckBox();
             this.checkBox_ot3 = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button_Read
@@ -313,10 +314,20 @@
             this.checkBox_ot3.Text = "output3";
             this.checkBox_ot3.CheckStateChanged += new System.EventHandler(this.checkBox_ot0_CheckStateChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(618, 324);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 20);
+            this.button1.TabIndex = 51;
+            this.button1.Text = "返回";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Terminal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox_ot3);
             this.Controls.Add(this.checkBox_ot2);
             this.Controls.Add(this.checkBox_ot1);
@@ -384,5 +395,6 @@
         private System.Windows.Forms.CheckBox checkBox_ot1;
         private System.Windows.Forms.CheckBox checkBox_ot2;
         private System.Windows.Forms.CheckBox checkBox_ot3;
+        private System.Windows.Forms.Button button1;
     }
 }

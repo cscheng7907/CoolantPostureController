@@ -45,6 +45,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -187,6 +188,12 @@
       <DependentUpon>Terminal.cs</DependentUpon>
     </Compile>
     <Compile Include="TId2AngleConfigure.cs" />
+    <Compile Include="UICtrls\EditCell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UICtrls\EditCell.Designer.cs">
+      <DependentUpon>EditCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="UICtrls\PageViewDiagnose.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -232,6 +239,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="res\Set_up.png" />
+    <EmbeddedResource Include="UICtrls\EditCell.resx">
+      <DependentUpon>EditCell.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UICtrls\PageViewEdit.resx">
       <DependentUpon>PageViewEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +269,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Btn_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Btn_dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Pg_back_dis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Pg_back_dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Pg_back_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Pg_fore_dis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Pg_fore_dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Pg_fore_up.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

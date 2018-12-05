@@ -188,18 +188,23 @@ namespace CoolantPostureController.UICtrls
 
 
             button33.IMGContainer = BackButtonImage;
-            button33.Toggle = true;
+           // button33.Toggle = true;
             button33.Font = currentFont;
-            button33.ForeColor = Color.White;//textColor;
+            //button33.ForeColor = Color.White;//textColor;
 
             this.panel_Drv.ResumeLayout(false);
             this.panel_IO.ResumeLayout(false);
             this.ResumeLayout(false);
 
+            BindDataChange();
+        }
+
+        private void BindDataChange()
+        {
             DriverModule.GetInstance().OnDataChanged += new OnDataChangedEventHandler(drvdataChange);
             IOModule.GetInstance().OnDataChanged += new OnDataChangedEventHandler(iodataChange);
-
         }
+
 
         public override void DoEnter()
         {
@@ -208,12 +213,20 @@ namespace CoolantPostureController.UICtrls
             DoRefresh();
         }
 
+        public override void DoReEnter()
+        {
+            base.DoReEnter();
+
+            DoRefresh();
+        }
+
+
         protected override void DoExit()
         {
             base.DoExit();
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, MouseEventArgs e)
         {
             this.DoExit();
         }

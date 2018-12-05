@@ -28,6 +28,10 @@ namespace CoolantPostureController
 #else
         private const string PortName = "COM3";
 #endif
+        private const int mouselast = 3000;//ms
+        private const string password_EnterWinCE = "111";
+        private const string password_Enterterminal = "222";
+
 
         private const string password_Diagnose = "666";//诊断界面密码
         private SerialPort port = null;
@@ -98,10 +102,10 @@ namespace CoolantPostureController
 
             TId2AngleConfigure.GetInstance().Load();
 
+            timer1.Enabled = true;
             ViewMap();
 
 
-            // timer1.Enabled = true;
         }
 
         #region testing
@@ -115,6 +119,7 @@ namespace CoolantPostureController
             //timer1_Tick(this, null);
 
             //imageLabel_Diagnose_Click(this, null);
+            timer1_Tick(this, null);
             imageLabel_MAC_Click(this, null);
 #endif
         }
@@ -194,6 +199,8 @@ namespace CoolantPostureController
         private PageViewDiagnose pvDiagnose = null;
         private PageViewMAC pvMAC = null;
         private PageViewEdit pvEdit = null;
+        private Terminal pvTerminal = null;
+
 
         public void Create_pvMAC()
         {
@@ -283,6 +290,28 @@ namespace CoolantPostureController
         }
 
 
+        private void Create_pvTerminal()
+        {
+            if (pvTerminal == null)
+            {
+                pvTerminal = new Terminal();
+                pvTerminal.Location = bigviewLocation;
+                pvTerminal.Size = bigviewsize;
+                pvTerminal.Enabled = false;
+                this.Controls.Add(this.pvTerminal);
+
+            }
+        }
+
+        private void imageLabel_Terminal_Click(object sender, EventArgs e)
+        {
+            Create_pvTerminal();
+            pvTerminal.DoEnter();
+            //Terminal ter = new Terminal();
+            //ter.Dock = DockStyle.Fill;
+            //this.panel_body.Controls.Add(ter);
+        }
+
         #endregion
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -292,6 +321,116 @@ namespace CoolantPostureController
 
             DoTitleUpdate();
         }
+
+
+        #region MouseEvent & password
+        private Point _MP;
+        DateTime MouseDownTime = DateTime.Now;
+        private void panel_Head_MouseDown(object sender, MouseEventArgs e)
+        {
+            //if (e.Button == MouseButtons.Right)
+            //else 
+            if (e.Button == MouseButtons.Left)
+            {
+                _MP.X = e.X;
+                _MP.Y = e.Y;
+                MouseDownTime = DateTime.Now;
+            }
+        }
+        private void panel_Head_MouseMove(object sender, MouseEventArgs e)
+        {
+#if WindowsCE
+#else
+            if (e.Button == MouseButtons.Left)
+            {
+                Top = MousePosition.Y - _MP.Y;
+                Left = MousePosition.X - _MP.X;
+            }
+#endif
+        }
+        private void panel_Head_MouseUp(object sender, MouseEventArgs e)
+        {
+            DateTime MouseUpTime = DateTime.Now;
+
+            TimeSpan ts = (TimeSpan)(MouseUpTime - MouseDownTime);
+
+            if (ts.TotalMilliseconds >= mouselast)
+            {
+                KeypadForm f = KeypadForm.GetKeypadForm("", KeypadMode.password);
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    //退出程序，进入wince 
+                    if (f.KeyText == password_EnterWinCE)
+                    {
+                        System.Diagnostics.Process.Start("explorer.exe", "");
+                        //System.Diagnostics.Process.Start("\\NORFlash\\001\\COPY.bat", "");
+                        Application.DoEvents();
+                        Application.Exit();
+                    }
+                    else if (f.KeyText == password_Enterterminal)
+                    {
+                        imageLabel_Terminal_Click(this, null);
+                    }
+                    //else if (f.KeyText == password_Update) //软件升级
+                    //{
+                    //    if (File.Exists("\\HardDisk\\AdvaMACSysUpdater.exe"))
+                    //    {
+                    //        System.Diagnostics.Process.Start("\\HardDisk\\AdvaMACSysUpdater.exe", "");
+
+                    //        Application.DoEvents();
+                    //        Application.Exit();
+                    //    }
+                    //    else
+                    //        if (File.Exists("\\USB Hard Disk\\AdvaMACSysUpdater.exe"))
+                    //        {
+                    //            System.Diagnostics.Process.Start("\\USB Hard Disk\\AdvaMACSysUpdater.exe", "");
+
+                    //            Application.DoEvents();
+                    //            Application.Exit();
+                    //        }
+
+                    //}
+#if WindowsCE
+#else
+                    //else if (f.KeyText == password_Test) //test
+                    //{
+                    //    if (_VirtualSetForm == null)
+                    //        _VirtualSetForm = new VirtualSetForm();
+
+                    //    _VirtualSetForm.Show();
+                    //}
+#endif
+                    //else if (f.KeyText == password_Reset) //系统数据复位
+                    //{
+                    //    CDataPool.GetDataPoolObject().Reset();
+
+                    //    if (WarnErrOper != null)
+                    //        WarnErrOper.Reset();
+
+                    //    if (historyOper != null)
+                    //        historyOper.Reset();
+                    //}
+                    //else if (f.KeyText == password_Backup_History)//历史记录备份
+                    //{
+                    //    FileCpyForm.GetFileCpyForm().StartCopy();
+                    //}
+                }
+            }
+        }
+        #endregion
+
+        private void panel_Title_DoubleClick(object sender, EventArgs e)
+        {
+#if WindowsCE
+#else
+
+
+
+
+
+#endif
+        }
+
 
     }
 }
