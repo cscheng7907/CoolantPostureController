@@ -57,6 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComnCtrls\ClickLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ComnCtrls\ImageButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -290,6 +293,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Pg_fore_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\rabbit_jog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\turtle_jog.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

@@ -140,7 +140,7 @@
             this.imageLabel_Reset.Checked = false;
             this.imageLabel_Reset.DNImg = null;
             this.imageLabel_Reset.DNImgDisable = null;
-            this.imageLabel_Reset.DownColor = System.Drawing.SystemColors.Control;
+            this.imageLabel_Reset.DownColor = System.Drawing.Color.Silver;
             this.imageLabel_Reset.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
             this.imageLabel_Reset.IMGContainer = null;
             this.imageLabel_Reset.Layout = ComCtrls.KTLayout.GlyphTop;
@@ -153,7 +153,7 @@
             this.imageLabel_Reset.Text = "复位";
             this.imageLabel_Reset.Toggle = false;
             this.imageLabel_Reset.TransParent = true;
-            this.imageLabel_Reset.UpColor = System.Drawing.SystemColors.Control;
+            this.imageLabel_Reset.UpColor = System.Drawing.Color.Silver;
             this.imageLabel_Reset.UPImg = null;
             this.imageLabel_Reset.UPImgDisable = null;
             this.imageLabel_Reset.Click += new System.EventHandler(this.imageLabel_Reset_Click);
@@ -164,7 +164,7 @@
             this.imageLabel_Home.Checked = false;
             this.imageLabel_Home.DNImg = null;
             this.imageLabel_Home.DNImgDisable = null;
-            this.imageLabel_Home.DownColor = System.Drawing.SystemColors.Control;
+            this.imageLabel_Home.DownColor = System.Drawing.Color.Silver;
             this.imageLabel_Home.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
             this.imageLabel_Home.IMGContainer = null;
             this.imageLabel_Home.Layout = ComCtrls.KTLayout.GlyphTop;
@@ -177,7 +177,7 @@
             this.imageLabel_Home.Text = "回零";
             this.imageLabel_Home.Toggle = false;
             this.imageLabel_Home.TransParent = true;
-            this.imageLabel_Home.UpColor = System.Drawing.SystemColors.Control;
+            this.imageLabel_Home.UpColor = System.Drawing.Color.Silver;
             this.imageLabel_Home.UPImg = null;
             this.imageLabel_Home.UPImgDisable = null;
             this.imageLabel_Home.Click += new System.EventHandler(this.imageLabel_Home_Click);
@@ -188,7 +188,7 @@
             this.imageLabel_Start.Checked = false;
             this.imageLabel_Start.DNImg = null;
             this.imageLabel_Start.DNImgDisable = null;
-            this.imageLabel_Start.DownColor = System.Drawing.SystemColors.Control;
+            this.imageLabel_Start.DownColor = System.Drawing.Color.Silver;
             this.imageLabel_Start.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
             this.imageLabel_Start.IMGContainer = null;
             this.imageLabel_Start.Layout = ComCtrls.KTLayout.GlyphTop;
@@ -201,7 +201,7 @@
             this.imageLabel_Start.Text = "启动|暂停";
             this.imageLabel_Start.Toggle = false;
             this.imageLabel_Start.TransParent = true;
-            this.imageLabel_Start.UpColor = System.Drawing.SystemColors.Control;
+            this.imageLabel_Start.UpColor = System.Drawing.Color.Silver;
             this.imageLabel_Start.UPImg = null;
             this.imageLabel_Start.UPImgDisable = null;
             this.imageLabel_Start.Click += new System.EventHandler(this.imageLabel_Start_Click);

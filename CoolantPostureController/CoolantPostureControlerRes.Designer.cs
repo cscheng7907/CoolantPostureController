@@ -172,6 +172,13 @@ namespace CoolantPostureController {
             }
         }
         
+        public static System.Drawing.Bitmap rabbit_jog {
+            get {
+                object obj = ResourceManager.GetObject("rabbit_jog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap red_off {
             get {
                 object obj = ResourceManager.GetObject("red_off", resourceCulture);
@@ -203,6 +210,13 @@ namespace CoolantPostureController {
         public static System.Drawing.Bitmap Set_up {
             get {
                 object obj = ResourceManager.GetObject("Set_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap turtle_jog {
+            get {
+                object obj = ResourceManager.GetObject("turtle_jog", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

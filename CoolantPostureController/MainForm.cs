@@ -132,18 +132,14 @@ namespace CoolantPostureController
 
 
         //自动运行
-        private void DoControl()
-        {
-            DriverModule.GetInstance().GotoPos(
-                TId2AngleConfigure.GetInstance().GetAngle(
-                IOModule.GetInstance().ToolNum));
-        }
-
-        private void DoLogic()
-        {
+        //private void DoControl()
+        //{
+        //    DriverModule.GetInstance().GotoPos(
+        //        TId2AngleConfigure.GetInstance().GetAngle(
+        //        IOModule.GetInstance().ToolNum));
+        //}
 
 
-        }
 
         private void DoTitleUpdate()
         {
@@ -158,6 +154,16 @@ namespace CoolantPostureController
                 this.label_ErrNo.Text = DriverModule.GetInstance().ErrorNo.ToString();
         }
 
+        private void DoIOSignal()
+        {
+            IOModule.GetInstance().Error = DriverModule.GetInstance().Error;
+
+            IOModule.GetInstance().Ready =
+               !DriverModule.GetInstance().Error &&
+               DriverModule.GetInstance().Homed &&
+               DriverModule.GetInstance().Inpos &&
+               IOModule.GetInstance().LatheReady;
+        }
 
         #region 加载字体
 #if WindowsCE
@@ -320,6 +326,7 @@ namespace CoolantPostureController
             IOModule.GetInstance().DoRefresh();
 
             DoTitleUpdate();
+            DoIOSignal();
         }
 
 

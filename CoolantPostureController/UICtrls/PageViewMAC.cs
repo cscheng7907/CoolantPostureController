@@ -67,6 +67,7 @@ namespace CoolantPostureController.UICtrls
             base.DoReEnter();
 
             DoRefresh();
+            DoRun();
         }
 
         protected override void DoExit()
@@ -79,14 +80,12 @@ namespace CoolantPostureController.UICtrls
         {
             UpdateToolNum();
             UpdateAng();
-
-            //DoRun();
         }
 
 
         private void UpdateToolNum()
         {
-            label_ToolNum.Text ="# "+ IOModule.GetInstance().ToolNum.ToString();
+            label_ToolNum.Text = "# " + IOModule.GetInstance().ToolNum.ToString();
         }
 
         private void UpdateAng()
@@ -165,7 +164,12 @@ namespace CoolantPostureController.UICtrls
 
         private void imageLabel_Start_Click(object sender, EventArgs e)
         {
+            isRunning = !isRunning;
 
+            imageLabel_Start.Text = isRunning ? "停止" : "启动";
+
+            if (isRunning)
+                DoRun();
         }
         #endregion
 

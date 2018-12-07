@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label_Num = new System.Windows.Forms.Label();
-            this.label_Val = new System.Windows.Forms.Label();
+            this.label_Val = new ComCtrls.ImageLabel();
             this.SuspendLayout();
             // 
             // label_Num
@@ -53,7 +53,8 @@
             this.label_Val.Name = "label_Val";
             this.label_Val.Size = new System.Drawing.Size(102, 27);
             this.label_Val.Text = "231.2";
-            this.label_Val.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label_Val.Click += new System.EventHandler(this.EditCell_Click);
+            // this.label_Val.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // EditCell
             // 
@@ -64,7 +65,6 @@
             this.Controls.Add(this.label_Num);
             this.Name = "EditCell";
             this.Size = new System.Drawing.Size(156, 35);
-            this.Click += new System.EventHandler(this.EditCell_Click);
             this.ResumeLayout(false);
 
         }
@@ -72,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label label_Num;
-        private System.Windows.Forms.Label label_Val;
+        private ComCtrls.ImageLabel label_Val;
     }
 }

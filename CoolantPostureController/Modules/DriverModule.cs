@@ -39,6 +39,9 @@ namespace CoolantPostureController.Modules
         drv_idx_12_Velosity = 0x000C,
         #endregion
 
+        //0x0011	10 4000 pu/rev	细分设置  
+        drv_idx_17_xifen = 0x0011,
+
         //2、触摸屏需要设置的参数
         #region 触摸屏设置的参数
         //0x0020	起始速度2~300r/min	5	参数

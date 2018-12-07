@@ -48,7 +48,8 @@ namespace CoolantPostureController.UICtrls
 
         private void EditCell_Click(object sender, EventArgs e)
         {
-
+            base.OnClick(new EventArgs());
+            
         }
 
         private int _keynum = -1;

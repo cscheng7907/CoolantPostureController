@@ -15,17 +15,24 @@ namespace CoolantPostureController.UICtrls
     {
         private List<EditCell> EditCellList = new List<EditCell>();
         private const int EditCellListCount = 32;
-        private double StepLength = 0.5;
 
+        private const double StepLength_Large = 5;
+        private const double StepLength_Small = 0.5;
+
+
+        private double StepLength = StepLength_Small;
+
+        private int selectIndex = -1;
 
         private ImagesContaner BackButtonImage = null;//按钮背景图
         private ImagesContaner PgBackButtonImage = null;//按钮背景图
         private ImagesContaner PgForeButtonImage = null;//按钮背景图
+        private ImagesContaner JogModeButtonImage = null;//按钮背景图
 
         #region 布局
         private Color textColor = Color.Black;//字体颜色
         private Font currentFont = new Font("微软雅黑", 14F, FontStyle.Regular);//IO标签字体
-        private int IOMarginTop = 10;//90;//第一行IO标签与顶端方向间距
+        private int IOMarginTop = 15;//90;//第一行IO标签与顶端方向间距
         private int IOMarginLeft = 20;//第一列IO标签与左端方向间距
         private int IOWidth = 150;//210;//IO标签宽度
         private int IOHeight = 35;//35;//IO标签高度
@@ -85,6 +92,18 @@ namespace CoolantPostureController.UICtrls
             //end 翻页按钮
 
 
+            //JogMode按钮 
+            JogModeButtonImage = new ImagesContaner();
+            JogModeButtonImage.DNImg = CoolantPostureControlerRes.rabbit_jog;//.Set_down;
+            JogModeButtonImage.UPImg = CoolantPostureControlerRes.turtle_jog;//.Set_up;
+            JogModeButtonImage.UPImgDisaable = CoolantPostureControlerRes.turtle_jog;// Set_disable;
+            JogModeButtonImage.DNImgDisable = CoolantPostureControlerRes.rabbit_jog;// Set_disable;
+
+
+            imageButton_JogMode.IMGContainer = JogModeButtonImage;
+            imageButton_JogMode.Font = currentFont;
+            imageButton_JogMode.MouseUp += new MouseEventHandler(this.JogModeButton_Click);
+            //end JogMode按钮
 
 
             //EditCell
@@ -147,29 +166,7 @@ namespace CoolantPostureController.UICtrls
         }
 
 
-        private int selectIndex = -1;
-        private void DoCellClick(object sender, EventArgs e)
-        {
-            if (sender is EditCell)
-            {
-                EditCell ce = (EditCell)sender;
-
-                for (int i = 0; i < EditCellListCount; i++)
-                {
-                    EditCellList[i].Checked = (EditCellList[i] == ce);
-                    if (EditCellList[i].Checked)
-                        selectIndex = i;
-                }
-            }
-        }
-
-        private void ExitButton_Click(object sender, MouseEventArgs e)
-        {
-            this.DoExit();
-
-        }
-
-
+        
 
         #region data change
 
@@ -258,7 +255,36 @@ namespace CoolantPostureController.UICtrls
 
         #endregion
 
+        #region Clicks
+        private void DoCellClick(object sender, EventArgs e)
+        {
+            if (sender is EditCell)
+            {
+                EditCell ce = (EditCell)sender;
 
+                //for (int i = 0; i < EditCellListCount; i++)
+                //{
+                //    EditCellList[i].Checked = (EditCellList[i] == ce);
+                //    if (EditCellList[i].Checked)
+                //        selectIndex = i;
+                //}
+                if (selectIndex >= 0)
+                {
+                    EditCellList[selectIndex].Checked = false;
+                }
+                ce.Checked = true;
+                selectIndex = Convert.ToInt32(ce.Tag);
+
+
+                linkLabel_Edit.Text = ce.KeyValue.ToString("0.0");
+            }
+        }
+
+        private void ExitButton_Click(object sender, MouseEventArgs e)
+        {
+            this.DoExit();
+
+        }
         private void imageButton_Inc_Click(object sender, EventArgs e)
         {
             DriverModule.GetInstance().GotoPos(
@@ -277,13 +303,15 @@ namespace CoolantPostureController.UICtrls
         {
             if (selectIndex >= 0)
             {
+                EditCell selcell = EditCellList[selectIndex];
                 // TId2AngleConfigure.GetInstance().SetAngle (
 
-                EditCellList[selectIndex].KeyValue = DriverModule.GetInstance().Position;
+                selcell.KeyValue = DriverModule.GetInstance().Position;
+                linkLabel_Edit.Text = selcell.KeyValue.ToString("0.0");
 
                 TId2AngleConfigure.GetInstance().SetAngle(
-                    EditCellList[selectIndex].KeyNum,
-                    EditCellList[selectIndex].KeyValue);
+                    selcell.KeyNum,
+                    selcell.KeyValue);
 
                 TId2AngleConfigure.GetInstance().Save();
                 //,
@@ -308,6 +336,51 @@ namespace CoolantPostureController.UICtrls
             }
         }
 
+        private void linkLabel_Edit_Click(object sender, EventArgs e)
+        {
+            KeypadForm f = KeypadForm.GetKeypadForm("", KeypadMode.Normal);
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    double input = Convert.ToDouble(f.KeyText);
+                    if (selectIndex >= 0)
+                    {
+                        EditCell selcell = EditCellList[selectIndex];
 
+
+                        selcell.KeyValue = input;
+                        linkLabel_Edit.Text = input.ToString("0.0");
+
+                        TId2AngleConfigure.GetInstance().SetAngle(
+                           selcell.KeyNum,
+                           selcell.KeyValue);
+
+                        TId2AngleConfigure.GetInstance().Save();
+                    }
+                }
+                catch (Exception)
+                {
+
+
+                }
+
+
+            }
+        }
+
+        private void JogModeButton_Click(object sender, EventArgs e)
+        {
+            if (sender is ImageButton)
+            {
+                ImageButton ib = (ImageButton)sender;
+
+                StepLength = (ib.Checked) ?
+                    StepLength_Large :
+                    StepLength_Small;         
+            
+            }
+        } 
+        #endregion
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel_Edit = new System.Windows.Forms.LinkLabel();
             this.imageButton_Set = new ComCtrls.ImageButton(this.components);
             this.imageButton_Dec = new ComCtrls.ImageButton(this.components);
             this.imageButton_Inc = new ComCtrls.ImageButton(this.components);
@@ -42,6 +43,8 @@
             this.label_cap = new System.Windows.Forms.Label();
             this.imageButton_Pgback = new ComCtrls.ImageButton(this.components);
             this.imageButton_PgFore = new ComCtrls.ImageButton(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.imageButton_JogMode = new ComCtrls.ImageButton(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +52,10 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScrollMargin = new System.Drawing.Size(1, 1);
+            this.panel1.Controls.Add(this.imageButton_JogMode);
+            this.panel1.Controls.Add(this.linkLabel_Edit);
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.imageButton_Set);
             this.panel1.Controls.Add(this.imageButton_Dec);
             this.panel1.Controls.Add(this.imageButton_Inc);
@@ -61,6 +68,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(170, 404);
             // 
+            // linkLabel_Edit
+            // 
+            this.linkLabel_Edit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel_Edit.BackColor = System.Drawing.SystemColors.Window;
+            this.linkLabel_Edit.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
+            this.linkLabel_Edit.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.linkLabel_Edit.Location = new System.Drawing.Point(9, 129);
+            this.linkLabel_Edit.Name = "linkLabel_Edit";
+            this.linkLabel_Edit.Size = new System.Drawing.Size(110, 28);
+            this.linkLabel_Edit.TabIndex = 53;
+            this.linkLabel_Edit.Text = "0";
+            this.linkLabel_Edit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linkLabel_Edit.Click += new System.EventHandler(this.linkLabel_Edit_Click);
+            // 
             // imageButton_Set
             // 
             this.imageButton_Set.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -71,10 +93,10 @@
             this.imageButton_Set.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.imageButton_Set.IMGContainer = null;
             this.imageButton_Set.Layout = ComCtrls.KTLayout.GlyphTop;
-            this.imageButton_Set.Location = new System.Drawing.Point(8, 253);
+            this.imageButton_Set.Location = new System.Drawing.Point(8, 246);
             this.imageButton_Set.Name = "imageButton_Set";
             this.imageButton_Set.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.imageButton_Set.Size = new System.Drawing.Size(155, 62);
+            this.imageButton_Set.Size = new System.Drawing.Size(155, 49);
             this.imageButton_Set.TabIndex = 42;
             this.imageButton_Set.TabStop = false;
             this.imageButton_Set.Text = "设置";
@@ -95,10 +117,10 @@
             this.imageButton_Dec.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.imageButton_Dec.IMGContainer = null;
             this.imageButton_Dec.Layout = ComCtrls.KTLayout.GlyphTop;
-            this.imageButton_Dec.Location = new System.Drawing.Point(8, 171); 
+            this.imageButton_Dec.Location = new System.Drawing.Point(8, 179);
             this.imageButton_Dec.Name = "imageButton_Dec";
             this.imageButton_Dec.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.imageButton_Dec.Size = new System.Drawing.Size(75, 62);
+            this.imageButton_Dec.Size = new System.Drawing.Size(75, 49);
             this.imageButton_Dec.TabIndex = 41;
             this.imageButton_Dec.TabStop = false;
             this.imageButton_Dec.Text = "手动-";
@@ -119,10 +141,10 @@
             this.imageButton_Inc.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.imageButton_Inc.IMGContainer = null;
             this.imageButton_Inc.Layout = ComCtrls.KTLayout.GlyphTop;
-            this.imageButton_Inc.Location = new System.Drawing.Point(88, 171);
+            this.imageButton_Inc.Location = new System.Drawing.Point(88, 179);
             this.imageButton_Inc.Name = "imageButton_Inc";
             this.imageButton_Inc.ShortcutKeys = System.Windows.Forms.Keys.None;
-            this.imageButton_Inc.Size = new System.Drawing.Size(75, 62);
+            this.imageButton_Inc.Size = new System.Drawing.Size(75, 49);
             this.imageButton_Inc.TabIndex = 40;
             this.imageButton_Inc.TabStop = false;
             this.imageButton_Inc.Text = "手动+";
@@ -144,9 +166,10 @@
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
             this.label3.Location = new System.Drawing.Point(8, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.Size = new System.Drawing.Size(99, 20);
             this.label3.Text = "当前角度值";
             // 
             // label_ToolNum
@@ -160,9 +183,10 @@
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
             this.label1.Location = new System.Drawing.Point(8, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 20);
+            this.label1.Size = new System.Drawing.Size(99, 20);
             this.label1.Text = "当前刀具号";
             // 
             // button_back
@@ -175,7 +199,7 @@
             this.button_back.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
             this.button_back.IMGContainer = null;
             this.button_back.Layout = ComCtrls.KTLayout.GlyphTop;
-            this.button_back.Location = new System.Drawing.Point(37, 339);
+            this.button_back.Location = new System.Drawing.Point(37, 322);
             this.button_back.Name = "button_back";
             this.button_back.ShortcutKeys = System.Windows.Forms.Keys.None;
             this.button_back.Size = new System.Drawing.Size(99, 62);
@@ -257,6 +281,39 @@
             this.imageButton_PgFore.UPImgDisable = null;
             this.imageButton_PgFore.Click += new System.EventHandler(this.imageButton_PgFore_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
+            this.textBox1.Location = new System.Drawing.Point(7, 127);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(114, 32);
+            this.textBox1.TabIndex = 58;
+            // 
+            // imageButton_JogMode
+            // 
+            this.imageButton_JogMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.imageButton_JogMode.Checked = false;
+            this.imageButton_JogMode.DNImg = null;
+            this.imageButton_JogMode.DNImgDisable = null;
+            this.imageButton_JogMode.DownColor = System.Drawing.SystemColors.Control;
+            this.imageButton_JogMode.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
+            this.imageButton_JogMode.IMGContainer = null;
+            this.imageButton_JogMode.Layout = ComCtrls.KTLayout.GlyphTop;
+            this.imageButton_JogMode.Location = new System.Drawing.Point(126, 125);
+            this.imageButton_JogMode.Name = "imageButton_JogMode";
+            this.imageButton_JogMode.ShortcutKeys = System.Windows.Forms.Keys.None;
+            this.imageButton_JogMode.Size = new System.Drawing.Size(36, 36);
+            this.imageButton_JogMode.TabIndex = 59;
+            this.imageButton_JogMode.TabStop = false;
+            this.imageButton_JogMode.Toggle = true;
+            this.imageButton_JogMode.TransParent = true;
+            this.imageButton_JogMode.UpColor = System.Drawing.SystemColors.Control;
+            this.imageButton_JogMode.UPImg = null;
+            this.imageButton_JogMode.UPImgDisable = null;
+            // 
             // PageViewEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -288,5 +345,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label_ToolNum;
         private ComCtrls.ImageButton imageButton_Set;
+        private System.Windows.Forms.LinkLabel linkLabel_Edit;
+        private System.Windows.Forms.TextBox textBox1;
+        private ComCtrls.ImageButton imageButton_JogMode;
     }
 }

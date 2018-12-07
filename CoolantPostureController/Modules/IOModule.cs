@@ -220,9 +220,41 @@ namespace CoolantPostureController.Modules
         public bool BtnDec
         { get { return inputbuffer[(int)cmdIdx.ciDec]; } }
 
-        public bool Ready
+        public bool LatheReady
         {
             get { return inputbuffer[(int)cmdIdx.ciReady]; }
+        }
+
+        private bool _ready = false;
+        public bool Ready
+        {
+            get { return _ready; }
+            set
+            {
+                if (_ready != value)
+                {
+                    _ready = value;
+
+                    SetOutput((int)IOCMDIdx.io_output0, _ready);
+                }
+            }
+        }
+
+        private bool _error = false;
+        public bool Error
+        {
+            get { return _error; }
+            set
+            {
+                if (_error != value)
+                {
+                    _error = value;
+
+                    SetOutput((int)IOCMDIdx.io_output1, _error);
+                }
+
+            }
+
         }
 
 

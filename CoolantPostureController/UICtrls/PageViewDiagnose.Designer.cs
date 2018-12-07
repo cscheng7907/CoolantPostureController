@@ -40,7 +40,7 @@ namespace CoolantPostureController.UICtrls
             // 
             this.button33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button33.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
-            this.button33.Location = new System.Drawing.Point(693, 326);
+            this.button33.Location = new System.Drawing.Point(663, 326);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(99, 62);
             this.button33.TabIndex = 32;

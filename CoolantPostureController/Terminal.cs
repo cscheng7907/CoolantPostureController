@@ -14,6 +14,8 @@ namespace CoolantPostureController
     {
         private Dictionary<DriverCMDIdx, ushort> InitList = new Dictionary<DriverCMDIdx, ushort> 
         {
+            {DriverCMDIdx.drv_idx_17_xifen, 10},//细分设置 10 4000 pu/rev	   
+            
             {DriverCMDIdx.drv_idx_49_HomeMode, 3},//回零模式 3反限位模式
 
             {DriverCMDIdx.drv_idx_67_X0_define, 3},//X0功能=3：反限位
@@ -94,7 +96,7 @@ namespace CoolantPostureController
 
             IOModule.GetInstance().DoRefresh();
             label_TN.Text = IOModule.GetInstance().ToolNum.ToString();
-            checkBox_Ready.Checked = IOModule.GetInstance().Ready;
+            checkBox_Ready.Checked = IOModule.GetInstance().LatheReady;
             checkBox_Inc.Checked = IOModule.GetInstance().BtnInc;
             checkBox_Dec.Checked = IOModule.GetInstance().BtnDec;
 

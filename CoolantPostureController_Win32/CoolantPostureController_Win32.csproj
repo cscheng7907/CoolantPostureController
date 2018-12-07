@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CoolantPostureController\ComnCtrls\ClickLabel.cs">
+      <Link>ComnCtrls\ClickLabel.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\CoolantPostureController\ComnCtrls\ImageButton.cs">
       <Link>ComnCtrls\ImageButton.cs</Link>
       <SubType>Component</SubType>
