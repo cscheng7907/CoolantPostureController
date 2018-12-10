@@ -16,5 +16,8 @@ namespace CoolantPostureController.DataPoll
 
 
         public virtual bool[] ReadInputs(ushort startAddress, ushort length) { return null; }
+
+        protected bool _connected = false;
+        public bool Connected { get { return _connected; } }
     }
 }

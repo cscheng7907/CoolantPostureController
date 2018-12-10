@@ -46,13 +46,42 @@
 
         public int Read(byte[] buffer, int offset, int count)
         {
-            return _serialPort.Read(buffer, offset, count);
+            int rt = 0;
+            try
+            {
+                rt = _serialPort.Read(buffer, offset, count);
+                _isconnected = true;
+                return rt;
+            }
+            catch (Exception)
+            {
+                _isconnected = false;
+                return 0;
+                // throw;
+            }
         }
 
         public void Write(byte[] buffer, int offset, int count)
         {
-            _serialPort.Write(buffer, offset, count);
+            try
+            {
+                _serialPort.Write(buffer, offset, count);
+                _isconnected = true;
+            }
+            catch (Exception)
+            {
+                _isconnected = false;
+                //throw;
+            }
         }
+
+
+        private bool _isconnected = false;
+        public bool IsConnected()
+        {
+            return _isconnected;
+        }
+
 
         public void Dispose()
         {

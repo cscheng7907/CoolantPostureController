@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace CoolantPostureController.DataPoll
 {
-   public  class DriverDeviceDataPoll : DeviceDataPollbase
+    public class DriverDeviceDataPoll : DeviceDataPollbase
     {
         private const byte slaveId = 2;
         //private ushort startAddress = 0;
@@ -61,16 +61,19 @@ namespace CoolantPostureController.DataPoll
                         {
                             //SetRightAns(true);
                             res = response[0];
+                            _connected = true;
                             //return response[0];
                         }
                         else
                         {
+                            _connected = false;
                             //SetRightAns(false);
                             //return 0;
                         }
                     }
                     else
                     {
+                        _connected = false;
                         //SetRightAns(false);
                         //return 0;
                     }
@@ -79,6 +82,10 @@ namespace CoolantPostureController.DataPoll
                 {
                     //return 0;
                 }
+            }
+            else
+            {
+                _connected = false;
             }
 
             return res;
@@ -109,16 +116,18 @@ namespace CoolantPostureController.DataPoll
 
                             _modbusmaster.ValidateWriteSingleRegisterResponse(readBytes, request);
                             //SetRightAns(true);
-
+                            _connected = true;
                         }
                         else
                         {
+                            _connected = false;
                             //SetRightAns(false);
                         }
 
                     }
                     catch (Exception ex)
                     {
+                        _connected = false;
                         //SetRightAns(false);
                         //Console.WriteLine(ex.Message);
                     }
@@ -127,6 +136,10 @@ namespace CoolantPostureController.DataPoll
                 {
 
                 }
+            }
+            else
+            {
+                _connected = false;
             }
         }
 
@@ -154,16 +167,17 @@ namespace CoolantPostureController.DataPoll
 
                         if (response.Length > 0)
                         {
+                            _connected = true; 
                             return response;
                         }
                         else
                         {
-                            ;
+                            _connected = false;
                         }
                     }
                     else
                     {
-
+                        _connected = false;
                     }
                 }
                 finally
@@ -171,11 +185,13 @@ namespace CoolantPostureController.DataPoll
 
                 }
             }
+            else
+                _connected = false;
 
             return null;
         }
         //public override bool[] ReadInputs(ushort startAddress, ushort length)
         //{ return null; }
-  
+
     }
 }

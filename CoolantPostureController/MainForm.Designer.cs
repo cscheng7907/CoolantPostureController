@@ -39,6 +39,8 @@
             this.label_Caption = new System.Windows.Forms.Label();
             this.panel_body = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer();
+            this.label_ConDrv = new System.Windows.Forms.Label();
+            this.label_Conio = new System.Windows.Forms.Label();
             this.panel_Title.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +56,8 @@
             // panel_Title
             // 
             this.panel_Title.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel_Title.Controls.Add(this.label_Conio);
+            this.panel_Title.Controls.Add(this.label_ConDrv);
             this.panel_Title.Controls.Add(this.label_company);
             this.panel_Title.Controls.Add(this.pictureBox_logo);
             this.panel_Title.Controls.Add(this.label_ErrNo);
@@ -80,6 +84,7 @@
             // 
             // pictureBox_logo
             // 
+            this.pictureBox_logo.BackColor = System.Drawing.Color.RoyalBlue;
             this.pictureBox_logo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_logo.Image")));
             this.pictureBox_logo.Location = new System.Drawing.Point(0, 0);
             this.pictureBox_logo.Name = "pictureBox_logo";
@@ -138,11 +143,28 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label_ConDrv
+            // 
+            this.label_ConDrv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_ConDrv.BackColor = System.Drawing.Color.GreenYellow;
+            this.label_ConDrv.Location = new System.Drawing.Point(784, 15);
+            this.label_ConDrv.Name = "label_ConDrv";
+            this.label_ConDrv.Size = new System.Drawing.Size(15, 15);
+            this.label_ConDrv.Text = ".";
+            // 
+            // label_Conio
+            // 
+            this.label_Conio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Conio.BackColor = System.Drawing.Color.GreenYellow;
+            this.label_Conio.Location = new System.Drawing.Point(784, 44);
+            this.label_Conio.Name = "label_Conio";
+            this.label_Conio.Size = new System.Drawing.Size(15, 15);
+            this.label_Conio.Text = ".";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 480);
             this.ControlBox = false;
             this.Controls.Add(this.btn_exit);
@@ -171,6 +193,8 @@
         private System.Windows.Forms.Label label_ErrNo;
         private System.Windows.Forms.Label label_company;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label_Conio;
+        private System.Windows.Forms.Label label_ConDrv;
     }
 }
 

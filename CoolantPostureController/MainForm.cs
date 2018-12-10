@@ -56,8 +56,8 @@ namespace CoolantPostureController
                     port.Parity = Parity.None;// .Even;
                     port.StopBits = StopBits.One;
                     port.Open();
-                    port.ReadTimeout = 5000;
-                    port.WriteTimeout = 1000;
+                    port.ReadTimeout = 500;
+                    port.WriteTimeout = 500;
 
                 }
                 catch (Exception)
@@ -327,6 +327,10 @@ namespace CoolantPostureController
 
             DoTitleUpdate();
             DoIOSignal();
+
+            label_ConDrv.BackColor = DriverModule.GetInstance().Connected ? Color.GreenYellow : Color.Red;
+
+            label_Conio.BackColor = IOModule.GetInstance().Connected ? Color.GreenYellow : Color.Red;
         }
 
 

@@ -45,6 +45,9 @@ namespace CoolantPostureController.UICtrls
             this.button33.Size = new System.Drawing.Size(99, 62);
             this.button33.TabIndex = 32;
             this.button33.Text = "返回";
+            this.button33.TransParent = true;
+            this.button33.DownColor = System.Drawing.SystemColors.Control;
+            this.button33.UpColor = System.Drawing.SystemColors.Control;
             this.button33.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ExitButton_Click);
             // 
             // label_Diagnose

@@ -96,8 +96,14 @@ namespace CoolantPostureController.Modules
         }
 
 
-        private bool _connected = false;
-        public bool Connected { get { return _connected; } }
+        //private bool _connected = false;
+        public bool Connected
+        {
+            get
+            {
+                return (_devicedatapoll != null) ? _devicedatapoll.Connected : false;//_connected;
+            }
+        }
 
         public void DoRefresh()
         {

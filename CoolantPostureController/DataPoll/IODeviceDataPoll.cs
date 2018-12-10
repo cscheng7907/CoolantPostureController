@@ -30,7 +30,7 @@ namespace CoolantPostureController.DataPoll
         { set { if (_modbusmaster != value) _modbusmaster = value; } }
 
 
-        public override  ushort ReadSingleHoldingRegisters(ushort startAddress)
+        public override ushort ReadSingleHoldingRegisters(ushort startAddress)
         {
             //return 0;
 
@@ -60,16 +60,19 @@ namespace CoolantPostureController.DataPoll
                         {
                             //SetRightAns(true);
                             res = response[0];
+                            _connected = true;
                             //return response[0];
                         }
                         else
                         {
+                            _connected = false;
                             //SetRightAns(false);
                             //return 0;
                         }
                     }
                     else
                     {
+                        _connected = false;
                         //SetRightAns(false);
                         //return 0;
                     }
@@ -79,6 +82,8 @@ namespace CoolantPostureController.DataPoll
                     //return 0;
                 }
             }
+            else
+                _connected = false;
 
             return res;
 
@@ -108,16 +113,18 @@ namespace CoolantPostureController.DataPoll
 
                             _modbusmaster.ValidateWriteSingleRegisterResponse(readBytes, request);
                             //SetRightAns(true);
-
+                            _connected = true;
                         }
                         else
                         {
+                            _connected = false;
                             //SetRightAns(false);
                         }
 
                     }
                     catch (Exception ex)
                     {
+                        _connected = false;
                         //SetRightAns(false);
                         //Console.WriteLine(ex.Message);
                     }
@@ -127,6 +134,8 @@ namespace CoolantPostureController.DataPoll
 
                 }
             }
+            else
+                _connected = false;
         }
 
         public override bool[] ReadCoils(ushort startAddress, ushort length)
@@ -153,16 +162,17 @@ namespace CoolantPostureController.DataPoll
 
                         if (response.Length > 0)
                         {
+                            _connected = true;
                             return response;
                         }
                         else
                         {
-                            ;
+                            _connected = false;
                         }
                     }
                     else
                     {
-
+                        _connected = false;
                     }
                 }
                 finally
@@ -170,6 +180,8 @@ namespace CoolantPostureController.DataPoll
 
                 }
             }
+            else
+                _connected = false;
 
             return null;
         }
@@ -182,7 +194,7 @@ namespace CoolantPostureController.DataPoll
                 try
                 {
                     IModbusMessage request;
-                    byte[] sendBytes = _modbusmaster.BuildReadInputsCommand (slaveId, startAddress, length, out request);
+                    byte[] sendBytes = _modbusmaster.BuildReadInputsCommand(slaveId, startAddress, length, out request);
                     _streamRes.Write(sendBytes, 0, sendBytes.Length);
 
                     byte[] readBuffer = new byte[1024];
@@ -199,16 +211,17 @@ namespace CoolantPostureController.DataPoll
 
                         if (response.Length > 0)
                         {
+                            _connected = true;
                             return response;
                         }
                         else
                         {
-                            ;
+                            _connected = false;
                         }
                     }
                     else
                     {
-
+                        _connected = false;
                     }
                 }
                 finally
@@ -216,6 +229,8 @@ namespace CoolantPostureController.DataPoll
 
                 }
             }
+            else
+                _connected = false;
 
             return null;
         }
@@ -237,6 +252,7 @@ namespace CoolantPostureController.DataPoll
 
                     if (num > 3)
                     {
+                        _connected = true;
                         //byte[] readBytes = new byte[num];
                         //Buffer.BlockCopy(readBuffer, 0, readBytes, 0, num);
 
@@ -253,7 +269,7 @@ namespace CoolantPostureController.DataPoll
                     }
                     else
                     {
-
+                        _connected = false;
                     }
                 }
                 finally
@@ -261,9 +277,11 @@ namespace CoolantPostureController.DataPoll
 
                 }
             }
+            else
+                _connected = false;
 
-        
-        
+
+
         }
 
     }
