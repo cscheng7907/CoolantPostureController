@@ -130,6 +130,13 @@ namespace CoolantPostureController {
             }
         }
         
+        public static byte[] MSYH {
+            get {
+                object obj = ResourceManager.GetObject("MSYH", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap Pg_back_dis {
             get {
                 object obj = ResourceManager.GetObject("Pg_back_dis", resourceCulture);

@@ -21,7 +21,7 @@ namespace CoolantPostureController
 {
     public partial class MainForm : Form
     {
-        private const string FontfileName = @"HardDisk\MSYH.ttf";
+        private const string FontfileName = @"\Harddisk\MSYH.ttf";
 
 #if WindowsCE
         private const string PortName = "COM2";
@@ -94,8 +94,8 @@ namespace CoolantPostureController
             IOModule.GetInstance().DeviceDataPoll = ioDataPoll;
 
 
-            if (isFontExists())
-                LoadFont();
+            // if (isFontExists())
+            LoadFont();
 
             bigviewLocation = new Point(0, this.panel_Title.Height);
             bigviewsize = new Size(this.Width, this.Height - this.panel_Title.Height);
@@ -191,6 +191,21 @@ namespace CoolantPostureController
 #if WindowsCE
             if (!isFontExists())
             {
+
+                if (!File.Exists(FontfileName))
+                {
+                    FileStream fs = new FileStream(FontfileName, FileMode.OpenOrCreate);
+                    try
+                    {
+                        fs.Write(CoolantPostureControlerRes.MSYH, 0, CoolantPostureControlerRes.MSYH.Length);
+                    }
+                    finally
+                    {
+                        fs.Flush();
+                        fs.Close();
+                    }
+                }
+
                 if (File.Exists(FontfileName))
                 {
                     int installFont = AddFontResource(FontfileName);

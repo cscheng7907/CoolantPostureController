@@ -31,10 +31,11 @@ namespace CoolantPostureController.UICtrls
 
         #region 布局
         private Color textColor = Color.Black;//字体颜色
-        private Font currentFont = new Font("微软雅黑", 14F, FontStyle.Regular);//IO标签字体
+        private Font currentFont = new Font("微软雅黑", 18F, FontStyle.Regular);//IO标签字体
+        private Font BtnFont = new Font("微软雅黑", 18F, FontStyle.Regular);//IO标签字体
         private int IOMarginTop = 15;//90;//第一行IO标签与顶端方向间距
         private int IOMarginLeft = 20;//第一列IO标签与左端方向间距
-        private int IOWidth = 150;//210;//IO标签宽度
+        private int IOWidth = 145;//210;//IO标签宽度
         private int IOHeight = 35;//35;//IO标签高度
         private int IOSpacingX = 16;//IO标签之间X方向间距
         private int IOSpacingY = 10;//2;//IO标签之间Y方向间距
@@ -61,7 +62,7 @@ namespace CoolantPostureController.UICtrls
             BackButtonImage.DNImgDisable = CoolantPostureControlerRes.ellipse_dis;// Set_disable;
 
             button_back.IMGContainer = BackButtonImage;
-            button_back.Font = currentFont;
+            button_back.Font = BtnFont;
             button_back.MouseUp += new MouseEventHandler(this.ExitButton_Click);
             //end 按钮 返回 
 
@@ -74,7 +75,7 @@ namespace CoolantPostureController.UICtrls
             PgBackButtonImage.DNImgDisable = CoolantPostureControlerRes.Pg_back_dis;// Set_disable;
 
             imageButton_Pgback.IMGContainer = PgBackButtonImage;
-            imageButton_Pgback.Font = currentFont;
+            imageButton_Pgback.Font = BtnFont;
             imageButton_Pgback.Text = string.Empty;
             imageButton_Pgback.BringToFront();
 
@@ -85,7 +86,7 @@ namespace CoolantPostureController.UICtrls
             PgForeButtonImage.DNImgDisable = CoolantPostureControlerRes.Pg_fore_dis;// Set_disable;
 
             imageButton_PgFore.IMGContainer = PgForeButtonImage;
-            imageButton_PgFore.Font = currentFont;
+            imageButton_PgFore.Font = BtnFont;
             imageButton_PgFore.Text = string.Empty;
             imageButton_PgFore.BringToFront();
 
@@ -101,10 +102,23 @@ namespace CoolantPostureController.UICtrls
 
 
             imageButton_JogMode.IMGContainer = JogModeButtonImage;
-            imageButton_JogMode.Font = currentFont;
+            imageButton_JogMode.Font = BtnFont;
             imageButton_JogMode.MouseUp += new MouseEventHandler(this.JogModeButton_Click);
             //end JogMode按钮
 
+            //Jog+-
+            imageButton_Inc.Font = BtnFont;
+
+            imageButton_Dec.Font = BtnFont;
+            //end Jog+-
+
+            //set
+            imageButton_Set.Font = BtnFont;
+            //end set
+
+            label_cap.Font = new Font("微软雅黑", 18F, FontStyle.Bold);
+            label_Pos.Font = new Font("微软雅黑", 18F, FontStyle.Bold);
+            label_ToolNum.Font = new Font("微软雅黑", 18F, FontStyle.Bold);
 
             //EditCell
             this.SuspendLayout();
@@ -166,7 +180,7 @@ namespace CoolantPostureController.UICtrls
         }
 
 
-        
+
 
         #region data change
 
@@ -377,10 +391,10 @@ namespace CoolantPostureController.UICtrls
 
                 StepLength = (ib.Checked) ?
                     StepLength_Large :
-                    StepLength_Small;         
-            
+                    StepLength_Small;
+
             }
-        } 
+        }
         #endregion
     }
 }

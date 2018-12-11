@@ -44,6 +44,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -69,6 +70,7 @@
             this.label_ToolNum.Name = "label_ToolNum";
             this.label_ToolNum.Size = new System.Drawing.Size(335, 102);
             this.label_ToolNum.Text = "# 6";
+            this.label_ToolNum.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label_Pos
             // 
@@ -77,6 +79,7 @@
             this.label_Pos.Name = "label_Pos";
             this.label_Pos.Size = new System.Drawing.Size(335, 107);
             this.label_Pos.Text = "360.5°";
+            this.label_Pos.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
@@ -136,7 +139,7 @@
             // 
             // imageLabel_Reset
             // 
-            this.imageLabel_Reset.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.imageLabel_Reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imageLabel_Reset.Checked = false;
             this.imageLabel_Reset.DNImg = null;
             this.imageLabel_Reset.DNImgDisable = null;
@@ -144,7 +147,7 @@
             this.imageLabel_Reset.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
             this.imageLabel_Reset.IMGContainer = null;
             this.imageLabel_Reset.Layout = ComCtrls.KTLayout.GlyphTop;
-            this.imageLabel_Reset.Location = new System.Drawing.Point(652, 315);
+            this.imageLabel_Reset.Location = new System.Drawing.Point(20, 307);
             this.imageLabel_Reset.Name = "imageLabel_Reset";
             this.imageLabel_Reset.ShortcutKeys = System.Windows.Forms.Keys.None;
             this.imageLabel_Reset.Size = new System.Drawing.Size(120, 60);
@@ -160,7 +163,7 @@
             // 
             // imageLabel_Home
             // 
-            this.imageLabel_Home.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.imageLabel_Home.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imageLabel_Home.Checked = false;
             this.imageLabel_Home.DNImg = null;
             this.imageLabel_Home.DNImgDisable = null;
@@ -168,7 +171,7 @@
             this.imageLabel_Home.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
             this.imageLabel_Home.IMGContainer = null;
             this.imageLabel_Home.Layout = ComCtrls.KTLayout.GlyphTop;
-            this.imageLabel_Home.Location = new System.Drawing.Point(652, 198);
+            this.imageLabel_Home.Location = new System.Drawing.Point(652, 206);
             this.imageLabel_Home.Name = "imageLabel_Home";
             this.imageLabel_Home.ShortcutKeys = System.Windows.Forms.Keys.None;
             this.imageLabel_Home.Size = new System.Drawing.Size(120, 60);
@@ -184,7 +187,7 @@
             // 
             // imageLabel_Start
             // 
-            this.imageLabel_Start.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.imageLabel_Start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.imageLabel_Start.Checked = false;
             this.imageLabel_Start.DNImg = null;
             this.imageLabel_Start.DNImgDisable = null;
@@ -192,7 +195,7 @@
             this.imageLabel_Start.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
             this.imageLabel_Start.IMGContainer = null;
             this.imageLabel_Start.Layout = ComCtrls.KTLayout.GlyphTop;
-            this.imageLabel_Start.Location = new System.Drawing.Point(652, 89);
+            this.imageLabel_Start.Location = new System.Drawing.Point(652, 97);
             this.imageLabel_Start.Name = "imageLabel_Start";
             this.imageLabel_Start.ShortcutKeys = System.Windows.Forms.Keys.None;
             this.imageLabel_Start.Size = new System.Drawing.Size(120, 60);
@@ -214,17 +217,17 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(627, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(170, 404);
+            this.panel1.Size = new System.Drawing.Size(170, 474);
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.Controls.Add(this.imageLabel_Reset);
             this.panel2.Location = new System.Drawing.Point(5, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(161, 394);
+            this.panel2.Size = new System.Drawing.Size(161, 464);
             // 
             // PageViewMAC
             // 
@@ -232,7 +235,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.imageLabel_Start);
             this.Controls.Add(this.imageLabel_Home);
-            this.Controls.Add(this.imageLabel_Reset);
             this.Controls.Add(this.imageLabel_Diagnose);
             this.Controls.Add(this.imageLabel_Edit);
             this.Controls.Add(this.pictureBox2);
@@ -244,8 +246,9 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Regular);
             this.Name = "PageViewMAC";
-            this.Size = new System.Drawing.Size(800, 410);
+            this.Size = new System.Drawing.Size(800, 480);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

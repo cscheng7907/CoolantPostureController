@@ -40,14 +40,14 @@ namespace CoolantPostureController.UICtrls
             // 
             this.button33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button33.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Regular);
-            this.button33.Location = new System.Drawing.Point(663, 326);
+            this.button33.Location = new System.Drawing.Point(663, 321);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(99, 62);
             this.button33.TabIndex = 32;
             this.button33.Text = "返回";
             this.button33.TransParent = true;
-            this.button33.DownColor = System.Drawing.SystemColors.Control;
-            this.button33.UpColor = System.Drawing.SystemColors.Control;
+            this.button33.DownColor = System.Drawing.SystemColors.ControlLight;
+            this.button33.UpColor = System.Drawing.SystemColors.ControlLight;
             this.button33.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ExitButton_Click);
             // 
             // label_Diagnose
@@ -56,7 +56,7 @@ namespace CoolantPostureController.UICtrls
             this.label_Diagnose.Location = new System.Drawing.Point(317, 4);
             this.label_Diagnose.Name = "label_Diagnose";
             this.label_Diagnose.Size = new System.Drawing.Size(169, 40);
-            this.label_Diagnose.Text = "诊断";
+            this.label_Diagnose.Text = "诊 断";
             // 
             // panel_Drv
             // 

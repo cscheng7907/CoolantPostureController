@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btn_exit = new System.Windows.Forms.Button();
             this.panel_Title = new System.Windows.Forms.Panel();
+            this.label_Conio = new System.Windows.Forms.Label();
+            this.label_ConDrv = new System.Windows.Forms.Label();
             this.label_company = new System.Windows.Forms.Label();
             this.pictureBox_logo = new System.Windows.Forms.PictureBox();
             this.label_ErrNo = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.label_Caption = new System.Windows.Forms.Label();
             this.panel_body = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer();
-            this.label_ConDrv = new System.Windows.Forms.Label();
-            this.label_Conio = new System.Windows.Forms.Label();
             this.panel_Title.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,24 @@
             this.panel_Title.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Head_MouseDown);
             this.panel_Title.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_Head_MouseUp);
             // 
+            // label_Conio
+            // 
+            this.label_Conio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Conio.BackColor = System.Drawing.Color.GreenYellow;
+            this.label_Conio.Location = new System.Drawing.Point(653, 39);
+            this.label_Conio.Name = "label_Conio";
+            this.label_Conio.Size = new System.Drawing.Size(2, 25);
+            this.label_Conio.Text = ".";
+            // 
+            // label_ConDrv
+            // 
+            this.label_ConDrv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_ConDrv.BackColor = System.Drawing.Color.GreenYellow;
+            this.label_ConDrv.Location = new System.Drawing.Point(653, 8);
+            this.label_ConDrv.Name = "label_ConDrv";
+            this.label_ConDrv.Size = new System.Drawing.Size(2, 25);
+            this.label_ConDrv.Text = ".";
+            // 
             // label_company
             // 
             this.label_company.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Regular);
@@ -96,7 +114,7 @@
             this.label_ErrNo.BackColor = System.Drawing.Color.Red;
             this.label_ErrNo.Font = new System.Drawing.Font("Tahoma", 28F, System.Drawing.FontStyle.Regular);
             this.label_ErrNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label_ErrNo.Location = new System.Drawing.Point(612, 12);
+            this.label_ErrNo.Location = new System.Drawing.Point(604, 12);
             this.label_ErrNo.Name = "label_ErrNo";
             this.label_ErrNo.Size = new System.Drawing.Size(34, 48);
             this.label_ErrNo.Text = "5";
@@ -142,24 +160,6 @@
             // 
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label_ConDrv
-            // 
-            this.label_ConDrv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_ConDrv.BackColor = System.Drawing.Color.GreenYellow;
-            this.label_ConDrv.Location = new System.Drawing.Point(784, 15);
-            this.label_ConDrv.Name = "label_ConDrv";
-            this.label_ConDrv.Size = new System.Drawing.Size(15, 15);
-            this.label_ConDrv.Text = ".";
-            // 
-            // label_Conio
-            // 
-            this.label_Conio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Conio.BackColor = System.Drawing.Color.GreenYellow;
-            this.label_Conio.Location = new System.Drawing.Point(784, 44);
-            this.label_Conio.Name = "label_Conio";
-            this.label_Conio.Size = new System.Drawing.Size(15, 15);
-            this.label_Conio.Text = ".";
             // 
             // MainForm
             // 

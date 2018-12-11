@@ -16,6 +16,8 @@ namespace CoolantPostureController.UICtrls
         private ComCtrls.ImagesContaner BtnImage = null;//IO标签背景图
         private ComCtrls.SimpleImagesContaner LabelImage = null;//IO标签背景图
 
+        private Font currentFont = new Font("微软雅黑", 60F, FontStyle.Bold);//IO标签字体
+        private Font BtnFont = new Font("微软雅黑", 18F, FontStyle.Regular);//IO标签字体
 
         private double AngIncStep = 0.5;
         private bool isRunning = false;
@@ -44,6 +46,18 @@ namespace CoolantPostureController.UICtrls
                 imageLabel_Reset.IMGContainer =
                 imageLabel_Start.IMGContainer =
                 BtnImage;
+
+            //font
+            label_ToolNum.Font =
+                label_Pos.Font =
+                currentFont;
+
+            imageLabel_Edit.Font =
+                imageLabel_Diagnose.Font =
+                imageLabel_Home.Font =
+                imageLabel_Reset.Font =
+                imageLabel_Start.Font =
+                BtnFont;
 
             BindDataChange();
         }

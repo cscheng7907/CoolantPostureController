@@ -299,6 +299,7 @@
     <None Include="res\rabbit_jog.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\MSYH.TTF" />
     <None Include="res\turtle_jog.png" />
   </ItemGroup>
   <ItemGroup>

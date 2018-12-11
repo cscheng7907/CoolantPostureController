@@ -34,7 +34,10 @@ namespace CoolantPostureController.UICtrls
 
         #region 布局
         private Color textColor = Color.Black;//字体颜色
-        private Font currentFont = new Font("微软雅黑", 14F, FontStyle.Regular);//IO标签字体
+        private Font currentFont = new Font("微软雅黑", 16F, FontStyle.Regular);//IO标签字体
+        private Font BtnFont = new Font("微软雅黑", 18F, FontStyle.Regular);//IO标签字体
+
+
         private int IOMarginTop = 10;//90;//第一行IO标签与顶端方向间距
         private int IOMarginLeft = 20;//第一列IO标签与左端方向间距
         private int IOWidth = 160;//210;//IO标签宽度
@@ -111,6 +114,11 @@ namespace CoolantPostureController.UICtrls
             this.panel_Drv.SuspendLayout();
             this.panel_IO.SuspendLayout();
 
+            this.panel_IO.BackColor = 
+                this.panel_Drv.BackColor = 
+                this.BackColor;
+
+
             //input
             for (int i = 0; i < DrvIOLableCount; i++)
             {
@@ -124,7 +132,7 @@ namespace CoolantPostureController.UICtrls
                 cylinder.TextX = TextMarginLeft;
                 cylinder.TextY = TextMarginTop;
                 cylinder.Text = "电机 输入#" + i.ToString();
-
+                cylinder.BackColor = this.panel_Drv.BackColor; 
                 this.panel_Drv.Controls.Add(cylinder);
             }
 
@@ -141,6 +149,7 @@ namespace CoolantPostureController.UICtrls
                 cylinder.TextX = TextMarginLeft;
                 cylinder.TextY = TextMarginTop;
                 cylinder.Text = "开关 输入#" + i.ToString();
+                cylinder.BackColor = this.panel_IO.BackColor;
                 this.panel_IO.Controls.Add(cylinder);
             }
 
@@ -160,6 +169,7 @@ namespace CoolantPostureController.UICtrls
                 cylinder.TextX = TextMarginLeft;
                 cylinder.TextY = TextMarginTop;
                 cylinder.Text = "电机 输出#" + i.ToString();
+                cylinder.BackColor = this.panel_Drv.BackColor; 
 
                 this.panel_Drv.Controls.Add(cylinder);
             }
@@ -182,6 +192,7 @@ namespace CoolantPostureController.UICtrls
 
                 cylinder.Tag = i;
                 cylinder.Click += new EventHandler(ioButton_Click);
+                cylinder.BackColor = this.panel_IO.BackColor;
 
                 this.panel_IO.Controls.Add(cylinder);
             }
@@ -189,8 +200,11 @@ namespace CoolantPostureController.UICtrls
 
             button33.IMGContainer = BackButtonImage;
            // button33.Toggle = true;
-            button33.Font = currentFont;
+            button33.Font = BtnFont;
             //button33.ForeColor = Color.White;//textColor;
+            this.label_Diagnose.Font = new Font("微软雅黑", 18F, FontStyle.Bold);
+
+
 
             this.panel_Drv.ResumeLayout(false);
             this.panel_IO.ResumeLayout(false);
