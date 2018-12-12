@@ -16,6 +16,11 @@ namespace CoolantPostureController.UICtrls
         private ComCtrls.ImagesContaner BtnImage = null;//IO标签背景图
         private ComCtrls.SimpleImagesContaner LabelImage = null;//IO标签背景图
 
+        private ComCtrls.SimpleImagesContaner PicImage1 = null;//IO标签背景图
+        private ComCtrls.SimpleImagesContaner PicImage2 = null;//IO标签背景图
+        
+
+
         private Font currentFont = new Font("微软雅黑", 60F, FontStyle.Bold);//IO标签字体
         private Font BtnFont = new Font("微软雅黑", 18F, FontStyle.Regular);//IO标签字体
 
@@ -38,6 +43,18 @@ namespace CoolantPostureController.UICtrls
             LabelImage.ImgDisable = CoolantPostureControlerRes.btn_dis;
             LabelImage.CheckedBackImg = CoolantPostureControlerRes.Btn_up;
 
+
+            PicImage1 = new SimpleImagesContaner();
+            PicImage1.BackImg = CoolantPostureControlerRes.MillTool ;
+            PicImage1.ImgDisable = CoolantPostureControlerRes.MillTool;
+            PicImage1.CheckedBackImg = CoolantPostureControlerRes.MillTool;
+
+            PicImage2 = new SimpleImagesContaner();
+            PicImage2.BackImg = CoolantPostureControlerRes.Water ;
+            PicImage2.ImgDisable = CoolantPostureControlerRes.Water;
+            PicImage2.CheckedBackImg = CoolantPostureControlerRes.Water;
+            
+
             imageLabel_Edit.IMGContainer =
                 imageLabel_Diagnose.IMGContainer =
                 LabelImage;
@@ -46,6 +63,9 @@ namespace CoolantPostureController.UICtrls
                 imageLabel_Reset.IMGContainer =
                 imageLabel_Start.IMGContainer =
                 BtnImage;
+
+            pictureBox1.IMGContainer = PicImage1;
+            pictureBox2.IMGContainer = PicImage2;
 
             //font
             label_ToolNum.Font =
@@ -209,7 +229,10 @@ namespace CoolantPostureController.UICtrls
 
         }
 
-
+        public bool IsRun
+        {
+            get { return isRunning; }
+        }
 
 
 

@@ -34,8 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label_ToolNum = new System.Windows.Forms.Label();
             this.label_Pos = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new ComCtrls.ImageLabel();
+            this.pictureBox2 = new ComCtrls.ImageLabel();
             this.imageLabel_Edit = new ComCtrls.ImageLabel();
             this.imageLabel_Diagnose = new ComCtrls.ImageLabel();
             this.imageLabel_Reset = new ComCtrls.ImageButton(this.components);
@@ -83,17 +83,41 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.BackImg = null;
+            this.pictureBox1.Checked = false;
+            this.pictureBox1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
+            this.pictureBox1.IMGContainer = null;
+            this.pictureBox1.ImgDisable = null;
+            this.pictureBox1.Layout = ComCtrls.KTLayout.GlyphTop;
             this.pictureBox1.Location = new System.Drawing.Point(61, 71);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "1";
+            this.pictureBox1.Text = "";
+            this.pictureBox1.TextX = -1F;
+            this.pictureBox1.TextY = -1F;
+            this.pictureBox1.TransParent = true;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.BackImg = null;
+            this.pictureBox2.Checked = false;
+            this.pictureBox2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
+            this.pictureBox2.IMGContainer = null;
+            this.pictureBox2.ImgDisable = null;
+            this.pictureBox2.Layout = ComCtrls.KTLayout.GlyphTop;
             this.pictureBox2.Location = new System.Drawing.Point(61, 180);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Tag = "1";
+            this.pictureBox2.Text = "";
+            this.pictureBox2.TextX = -1F;
+            this.pictureBox2.TextY = -1F;
+            this.pictureBox2.TransParent = true;
             // 
             // imageLabel_Edit
             // 
@@ -259,8 +283,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label_ToolNum;
         private System.Windows.Forms.Label label_Pos;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private ComCtrls.ImageLabel pictureBox1;
+        private ComCtrls.ImageLabel pictureBox2;
         private ComCtrls.ImageLabel imageLabel_Edit;
         private ComCtrls.ImageLabel imageLabel_Diagnose;
         private ComCtrls.ImageButton imageLabel_Reset;

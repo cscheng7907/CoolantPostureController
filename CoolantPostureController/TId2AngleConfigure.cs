@@ -8,8 +8,8 @@ namespace CoolantPostureController
 {
     public class TId2AngleConfigure
     {
-#if WinCE
-        private const string FileName = "\HardDisk\TId2AngleConfigure.txt";
+#if WindowsCE
+        private const string FileName = @"\Harddisk\TId2AngleConfigure.txt";
 #else
         private const string FileName = "TId2AngleConfigure.txt";
 #endif

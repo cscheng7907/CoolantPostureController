@@ -38,6 +38,9 @@ namespace CoolantPostureController
         private System.Drawing.Point bigviewLocation;
         private System.Drawing.Size bigviewsize;
 
+        private ComCtrls.SimpleImagesContaner PicImageLOGO = null;//IO标签背景图
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -74,6 +77,9 @@ namespace CoolantPostureController
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            InitView();
+
+            #region obj init
             //drv
             DriverDeviceDataPoll DataPoll = new DriverDeviceDataPoll();
             IStreamResource StreamRes = new SerialPortAdapter(GetSerialPort());
@@ -93,12 +99,7 @@ namespace CoolantPostureController
 
             IOModule.GetInstance().DeviceDataPoll = ioDataPoll;
 
-
-            // if (isFontExists())
-            LoadFont();
-
-            bigviewLocation = new Point(0, this.panel_Title.Height);
-            bigviewsize = new Size(this.Width, this.Height - this.panel_Title.Height);
+            #endregion            
 
             TId2AngleConfigure.GetInstance().Load();
 
@@ -107,6 +108,24 @@ namespace CoolantPostureController
 
 
         }
+
+        private void InitView()
+        {         
+            // if (isFontExists())
+            LoadFont();
+        
+            bigviewLocation = new Point(0, this.panel_Title.Height);
+            bigviewsize = new Size(this.Width, this.Height - this.panel_Title.Height);
+
+
+            PicImageLOGO = new SimpleImagesContaner();
+            PicImageLOGO.BackImg = CoolantPostureControlerRes.logo ;
+            PicImageLOGO.ImgDisable = CoolantPostureControlerRes.logo;
+            PicImageLOGO.CheckedBackImg = CoolantPostureControlerRes.logo;
+
+            pictureBox_logo.IMGContainer = PicImageLOGO;        
+        }
+
 
         #region testing
         private void ViewMap()
@@ -346,6 +365,11 @@ namespace CoolantPostureController
             label_ConDrv.BackColor = DriverModule.GetInstance().Connected ? Color.GreenYellow : Color.Red;
 
             label_Conio.BackColor = IOModule.GetInstance().Connected ? Color.GreenYellow : Color.Red;
+
+            if (pvMAC != null)
+                label_Runing.Visible = pvMAC.IsRun;
+            else
+                label_Runing.Visible = false;
         }
 
 

@@ -34,13 +34,14 @@
             this.label_Conio = new System.Windows.Forms.Label();
             this.label_ConDrv = new System.Windows.Forms.Label();
             this.label_company = new System.Windows.Forms.Label();
-            this.pictureBox_logo = new System.Windows.Forms.PictureBox();
+            this.pictureBox_logo = new ComCtrls.ImageLabel();
             this.label_ErrNo = new System.Windows.Forms.Label();
             this.label_Time = new System.Windows.Forms.Label();
             this.label_Date = new System.Windows.Forms.Label();
             this.label_Caption = new System.Windows.Forms.Label();
             this.panel_body = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer();
+            this.label_Runing = new System.Windows.Forms.Label();
             this.panel_Title.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // panel_Title
             // 
             this.panel_Title.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panel_Title.Controls.Add(this.label_Runing);
             this.panel_Title.Controls.Add(this.label_Conio);
             this.panel_Title.Controls.Add(this.label_ConDrv);
             this.panel_Title.Controls.Add(this.label_company);
@@ -103,10 +105,23 @@
             // pictureBox_logo
             // 
             this.pictureBox_logo.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pictureBox_logo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_logo.Image")));
+            this.pictureBox_logo.BackImg = null;
+            this.pictureBox_logo.Checked = false;
+            this.pictureBox_logo.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular);
+            this.pictureBox_logo.IMGContainer = null;
+            this.pictureBox_logo.ImgDisable = null;
+            this.pictureBox_logo.Layout = ComCtrls.KTLayout.GlyphTop;
             this.pictureBox_logo.Location = new System.Drawing.Point(0, 0);
             this.pictureBox_logo.Name = "pictureBox_logo";
             this.pictureBox_logo.Size = new System.Drawing.Size(70, 70);
+            this.pictureBox_logo.TabIndex = 13;
+            this.pictureBox_logo.TabStop = false;
+            this.pictureBox_logo.Tag = "1";
+            this.pictureBox_logo.Text = "";
+            this.pictureBox_logo.TextX = -1F;
+            this.pictureBox_logo.TextY = -1F;
+            this.pictureBox_logo.TransParent = true;
+
             // 
             // label_ErrNo
             // 
@@ -161,6 +176,18 @@
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label_Runing
+            // 
+            this.label_Runing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Runing.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular);
+            this.label_Runing.ForeColor = System.Drawing.Color.Yellow;
+            this.label_Runing.Location = new System.Drawing.Point(508, 30);
+            this.label_Runing.Name = "label_Runing";
+            this.label_Runing.Size = new System.Drawing.Size(88, 31);
+            this.label_Runing.Text = "运行中";
+            this.label_Runing.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label_Runing.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -186,7 +213,7 @@
         private System.Windows.Forms.Button btn_exit;
         private System.Windows.Forms.Panel panel_Title;
         private System.Windows.Forms.Panel panel_body;
-        private System.Windows.Forms.PictureBox pictureBox_logo;
+        private ComCtrls.ImageLabel pictureBox_logo;
         private System.Windows.Forms.Label label_Date;
         private System.Windows.Forms.Label label_Caption;
         private System.Windows.Forms.Label label_Time;
@@ -195,6 +222,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label_Conio;
         private System.Windows.Forms.Label label_ConDrv;
+        private System.Windows.Forms.Label label_Runing;
     }
 }
 

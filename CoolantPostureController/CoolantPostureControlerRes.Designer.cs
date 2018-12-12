@@ -123,9 +123,30 @@ namespace CoolantPostureController {
             }
         }
         
+        public static System.Drawing.Bitmap JogBtn_dn {
+            get {
+                object obj = ResourceManager.GetObject("JogBtn_dn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap JogBtn_up {
+            get {
+                object obj = ResourceManager.GetObject("JogBtn_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         public static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap MillTool {
+            get {
+                object obj = ResourceManager.GetObject("MillTool", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -224,6 +245,13 @@ namespace CoolantPostureController {
         public static System.Drawing.Bitmap turtle_jog {
             get {
                 object obj = ResourceManager.GetObject("turtle_jog", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        public static System.Drawing.Bitmap Water {
+            get {
+                object obj = ResourceManager.GetObject("Water", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

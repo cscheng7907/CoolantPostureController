@@ -28,6 +28,8 @@ namespace CoolantPostureController.UICtrls
         private ImagesContaner PgBackButtonImage = null;//按钮背景图
         private ImagesContaner PgForeButtonImage = null;//按钮背景图
         private ImagesContaner JogModeButtonImage = null;//按钮背景图
+        private ImagesContaner JogButtonImage = null;//按钮背景图
+        private ImagesContaner SetButtonImage = null;//按钮背景图
 
         #region 布局
         private Color textColor = Color.Black;//字体颜色
@@ -107,12 +109,28 @@ namespace CoolantPostureController.UICtrls
             //end JogMode按钮
 
             //Jog+-
-            imageButton_Inc.Font = BtnFont;
+            JogButtonImage = new ImagesContaner();
+            JogButtonImage.DNImg = CoolantPostureControlerRes.JogBtn_up;//.Set_down;
+            JogButtonImage.UPImg = CoolantPostureControlerRes.JogBtn_dn;//.Set_up;
+            JogButtonImage.UPImgDisaable = CoolantPostureControlerRes.JogBtn_dn;// Set_disable;
+            JogButtonImage.DNImgDisable = CoolantPostureControlerRes.JogBtn_up;// Set_disable;
 
+            imageButton_Inc.IMGContainer = JogButtonImage;
+            imageButton_Dec.IMGContainer = JogButtonImage;
+
+            imageButton_Inc.Font = BtnFont;
             imageButton_Dec.Font = BtnFont;
             //end Jog+-
 
             //set
+            SetButtonImage = new ImagesContaner();
+            SetButtonImage.DNImg = CoolantPostureControlerRes.Btn_dn;//.Set_down;
+            SetButtonImage.UPImg = CoolantPostureControlerRes.Btn_up;//.Set_up;
+            SetButtonImage.UPImgDisaable = CoolantPostureControlerRes.btn_dis;// Set_disable;
+            SetButtonImage.DNImgDisable = CoolantPostureControlerRes.btn_dis;// Set_disable;
+
+            imageButton_Set.IMGContainer = SetButtonImage;
+
             imageButton_Set.Font = BtnFont;
             //end set
 

@@ -303,6 +303,18 @@
     <None Include="res\turtle_jog.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\水流ss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\铣刀.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\JogBtn_dn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\JogBtn_up.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
